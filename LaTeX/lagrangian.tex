@@ -1,0 +1,139 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{setspace} % for single/doublespacing commands
+\usepackage{graphicx} % including graphics
+\usepackage{sectsty} % sexy section headings
+\usepackage{pdfpages} % including multipage pdfs
+\usepackage[export]{adjustbox} % for graphic frames and center
+\usepackage{amssymb} % special math symbols
+\usepackage{cancel} % arrow and cross math cancel symbol
+\usepackage[numbered]{matlab-prettifier} % including matlab w/ syntax highlighting
+\usepackage[T1]{fontenc} % prettier matlab font
+\usepackage{circuitikz} % drawing fancy shit
+\usepackage{xfrac} % more legible inline fractions (\sfrac)
+\usepackage{lmodern} % font package for above
+\usepackage{multicol} % multiple columns
+\usepackage[justification=centering]{caption} % figure captions (force centering)
+\usepackage{amsmath} % more math symbols and shit
+\usepackage{enumitem} % add arguments for enumerate to change style
+\usepackage[list=true]{subcaption} % subfigures with list of figure support
+
+\newcommand{\eqname}[1]{\tag*{#1}}% Tag equation with name
+
+\lstMakeShortInline[style=Matlab-editor]| % matlab inline escape character
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.pathmorphing} % for snakes!
+\graphicspath{{images/}}
+\usetikzlibrary{calc,patterns,angles,quotes}
+
+\allsectionsfont{\centering}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\setcounter{tocdepth}{3}
+
+\begin{document}
+
+\input{titlepage}
+\pagenumbering{roman}
+{\tableofcontents\let\clearpage\relax\listoffigures}
+\clearpage
+\pagenumbering{arabic}
+\newpage
+\begin{flushleft}
+
+% ---------------------------------------------------------------------------- %
+\section{Conceptualize the Problem}
+% ---------------------------------------------------------------------------- %
+
+
+\begin{figure}[h]
+  \begin{minipage}[c]{.45\textwidth}
+  \input{concept}
+\end{minipage}%
+\begin{minipage}[c]{.55\textwidth}
+  The pendulum system consists of a rigid bar pinned to the free end of a linear spring,
+  which rotates about its opposite end at a fixed point.
+\end{minipage}
+\end{figure}
+
+\subsection{Constants and Assumptions}
+\begin{tabular}{ll@{\hskip .75in}l}
+ \multicolumn{1}{c}{Constants:} && \multicolumn{1}{c}{Assumptions:} \\
+ Bar Mass: &$m$ = 1 kg & No Losses\\
+ Bar Length: &$L$ = 1 m & Released from Rest\\
+ Gravity: &$g$ = 9.81$\sfrac{m}{s^2}$ &Slender Bar \\
+ Linear Spring: &&Planar\\
+ \quad Spring Coefficient:& $k = 25~\sfrac{N}{m}$ &Rigid-Body Dynamics \\
+ \quad Unstretched Length:& $L$ = 0.5 m \\
+\end{tabular}
+\vspace{5ex}
+
+We are asked to determine the following: \\
+\begin{enumerate}
+  \item The Equations of Motion for the system via the Lagrangian method.
+  \item Integrate the Equations of Motion using various initial conditions and plot
+  the behavior of the system for 10 seconds. \\
+  \vspace{2ex}
+  $
+    \begin{array}{cll}
+    \text{(a)} & \theta_o = 0~rad, & \phi_o = 0~rad \\
+    \text{(b)} & \theta_o = \sfrac{\pi}{18}~rad, & \phi_o = \sfrac{\pi}{9}~rad \\
+    \text{(c)} & \theta_o = \sfrac{\pi}{6}~rad, & \phi_o = \sfrac{\pi}{3}~rad \\
+  \end{array}
+  $
+  \item Plot the total energy versus time for all 3 cases.
+  \item Repeat 2. and 3. using a 'RelTol' of 1e-6 and 'AbsTol' 1e-9 for the
+  |ode45| integration tolerances.
+\end{enumerate}
+
+% ---------------------------------------------------------------------------- %
+\section{Free Body Diagram}
+% ---------------------------------------------------------------------------- %
+
+% ---------------------------------------------------------------------------- %
+\section{Coordinate Frame} \label{section:coord}
+% ---------------------------------------------------------------------------- %
+
+% ---------------------------------------------------------------------------- %
+\section{Sum of Forces}
+% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- %
+\section{Constraints}
+% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- %
+\section{Solve for the Equations of Motion}
+% ---------------------------------------------------------------------------- %
+
+\newpage
+% ---------------------------------------------------------------------------- %
+\section{Solve the Equations of Motion}
+% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- %
+\section{Does it Make Sense?}
+% ---------------------------------------------------------------------------- %
+\subsection{Units}
+Checking with the MATLAB symbolic units tool (from Section \ref{appendix:numerical}): \\
+~\\
+% \input{unitcheck}
+\subsection{Magnitude}
+
+\section{Appendix} \label{appendix}
+\subsection{Attributions}
+\onehalfspacing
+\begin{tabular}{ll}
+Jeffrey Chen & \\
+Thorne Wolfenbarger &\\
+Trey Dufrene & \\
+Joint Effort & 
+\end{tabular}
+\singlespacing
+
+\newpage
+\subsection{Analytical Solution}
+
+\newpage
+\subsection{Numerical Solution} \label{appendix:numerical}
+% \input{matlab}
+
+\end{flushleft}
+\end{document}
