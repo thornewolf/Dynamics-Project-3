@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1543347508 "lagrangian.tex" "lagrangian.pdf" "lagrangian" 1543347509
+["pdflatex"] 1543597312 "lagrangian.tex" "lagrangian.pdf" "lagrangian" 1543628372
   "/usr/local/texlive/2018basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1480098668 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2018basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1480098668 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/texlive/2018basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc" 1480098668 2327 9d6df24f9c4f7368395224341a95523a ""
@@ -216,14 +216,14 @@
   "/usr/local/texlive/2018basic/texmf.cnf" 1523933242 628 fc6344cfe40d0ae2a8eba43e51328a06 ""
   "concept.tex" 1543290858 1287 e3b1958a8bedc4cb4050959686898f0d ""
   "images/univ.png" 1527025094 67488 7f4ba349c8773925208d9c1f9ac88a34 ""
-  "lagrangian.aux" 1543347509 1328 8c8f21a50e21a15a5c30c53f47b2bfe2 ""
-  "lagrangian.lof" 1543347509 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "lagrangian.tex" 1543347507 5228 1a6f15e9dcc0973ff2f124228689816f ""
-  "lagrangian.toc" 1543347509 949 db9fe25691149424fe9fccf0d7daf1e7 ""
+  "lagrangian.aux" 1543597313 1328 8c8f21a50e21a15a5c30c53f47b2bfe2 ""
+  "lagrangian.lof" 1543597313 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "lagrangian.tex" 1543628372 5415 bcfbafb1a0405b781b770ce3db4b701c ""
+  "lagrangian.toc" 1543597313 949 db9fe25691149424fe9fccf0d7daf1e7 ""
   "titlepage.tex" 1543287265 1074 186835174eb4cccae30b3be304b4e86b ""
   (generated)
   "lagrangian.toc"
+  "lagrangian.aux"
+  "lagrangian.lof"
   "lagrangian.log"
   "lagrangian.pdf"
-  "lagrangian.lof"
-  "lagrangian.aux"

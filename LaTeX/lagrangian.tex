@@ -47,12 +47,14 @@
 
 
 \begin{figure}[h]
-  \begin{minipage}[c]{.45\textwidth}
+  \begin{minipage}[c]{.4\textwidth}
   \input{concept}
 \end{minipage}%
-\begin{minipage}[c]{.55\textwidth}
+\begin{minipage}[c]{.6\textwidth}
   The pendulum system consists of a rigid bar pinned to the free end of a linear spring,
-  which rotates about its opposite end at a fixed point.
+  which rotates about its opposite end at a fixed point; there are three degrees of freedom,
+  since each bar has an individual rotation with respect to the vertical, as well as the
+  radial distance the bar is from the point of rotation.
 \end{minipage}
 \end{figure}
 
@@ -82,7 +84,7 @@ We are asked to determine the following: \\
   \end{array}
   $
   \item Plot the total energy versus time for all 3 cases.
-  \item Repeat 2. and 3. using a 'RelTol' of 1e-6 and 'AbsTol' 1e-9 for the
+  \item Repeat 2. and 3. using a '|RelTol|' of 1e-6 and '|AbsTol|' of 1e-9 for the
   |ode45| integration tolerances.
 \end{enumerate}
 
