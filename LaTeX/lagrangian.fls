@@ -396,6 +396,10 @@ INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/
 INPUT /usr/local/texlive/2018basic/texmf-dist/tex/latex/lm/t1lmtt.fd
 INPUT /usr/local/texlive/2018basic/texmf-dist/tex/latex/lm/t1lmtt.fd
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/lm/ec-lmtt12.tfm
+INPUT fbd.tex
+INPUT fbd.tex
+INPUT coord.tex
+INPUT coord.tex
 INPUT lagrangian.aux
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc

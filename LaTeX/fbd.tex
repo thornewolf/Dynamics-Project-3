@@ -11,20 +11,18 @@
   \draw (spring) -- ++(270+\myAngle:.5) coordinate (spring2);
   \pic [draw,angle radius=20,->, "$\theta~$", angle eccentricity=1.6] {angle = vert1--centro--spring};
 
-  \draw[->] (.85,0) -- ++(270+\myAngle:2.65) coordinate (r);
-  \draw ($(.85,0) + (270+\myAngle:2.75/2)$) node[label=0:$r$] {};
+  % \draw[->] (.85,0) -- ++(270+\myAngle:2.65) coordinate (r);
+  % \draw ($(.85,0) + (270+\myAngle:2.75/2)$) node[label=0:$r$] {};
   \draw ($(.25,0) + (270+\myAngle:2.75/1.5)$) node[label=$k$] {};
 
-
-  \fill[pattern = north east lines] ($(-1,0)$) rectangle ($(3.2,0.5) $);
-  \draw[thick] ($ (centro) + (-1,0) $) -- ($ (centro) + (3.2,0) $);
-\draw[dashed,gray,-] (spring2) -- ++ (0,-2) node (vert2) [black,below] {};
+  \draw (-1,0) -- (1,0);
+  \draw[dashed,gray,-] (spring2) -- ++ (0,-2) node (vert2) [black,below] {};
   \draw[double distance = .75mm,line cap=round] (spring2) -- ++(270+\myAngle+10:2.85) coordinate (bar);
 
-  \draw ($ (bar) + (.05,1.25)$) node[label] {$m,L$};
-
-
   \pic [draw,angle radius=20,->, "$\phi$", angle eccentricity=1.5] {angle = vert2--spring2--bar};
+
+  \fill[black] ($(spring2) + (305:1.425)$) circle (0.03) coordinate (g);
+  \draw ($(spring2) + (320:1.425)$) node[label] {$G$};
 
   \fill[black] (centro) circle (0.075);
 \end{tikzpicture}

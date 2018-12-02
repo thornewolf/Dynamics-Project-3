@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.16)  1 DEC 2018 16:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.16)  1 DEC 2018 22:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1103,17 +1103,17 @@ LaTeX Font Info:    Try loading font information for T1+lmtt on input line 87.
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [1
 
-] [2] [3] [4] [5] (./lagrangian.aux) ) 
+] (./fbd.tex) (./coord.tex) [2] [3] [4] [5] (./lagrangian.aux) ) 
 Here is how much of TeX's memory you used:
- 35174 strings out of 494091
- 767068 string characters out of 6163523
- 871955 words of memory out of 5000000
- 38336 multiletter control sequences out of 15000+600000
+ 35237 strings out of 494091
+ 767977 string characters out of 6163523
+ 870990 words of memory out of 5000000
+ 38393 multiletter control sequences out of 15000+600000
  615896 words of font info for 98 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  62i,18n,119p,10406b,1478s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2018basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2018basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on lagrangian.pdf (7 pages, 183965 bytes).
+Output written on lagrangian.pdf (7 pages, 186952 bytes).
 PDF statistics:
  68 PDF objects out of 1000 (max. 8388607)
  48 compressed objects within 1 object stream

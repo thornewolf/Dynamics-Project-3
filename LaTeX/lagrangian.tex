@@ -22,7 +22,7 @@
 
 \lstMakeShortInline[style=Matlab-editor]| % matlab inline escape character
 \usetikzlibrary{arrows}
-\usetikzlibrary{decorations.pathmorphing} % for snakes! 
+\usetikzlibrary{decorations.pathmorphing} % for snakes!
 \graphicspath{{images/}}
 \usetikzlibrary{calc,patterns,angles,quotes}
 
@@ -77,7 +77,7 @@ We are asked to determine the following: \\
   the behavior of the system for 10 seconds. \\
   \vspace{2ex}
   $
-    \begin{array}{cll}
+  \begin{array}{cll}
     \text{(a)} & \theta_o = 0~rad, & \phi_o = 0~rad \\
     \text{(b)} & \theta_o = \sfrac{\pi}{18}~rad, & \phi_o = \sfrac{\pi}{9}~rad \\
     \text{(c)} & \theta_o = \sfrac{\pi}{6}~rad, & \phi_o = \sfrac{\pi}{3}~rad \\
@@ -87,15 +87,42 @@ We are asked to determine the following: \\
   \item Repeat 2. and 3. using a '|RelTol|' of 1e-6 and '|AbsTol|' of 1e-9 for the
   |ode45| integration tolerances.
 \end{enumerate}
-
+\newpage
 % ---------------------------------------------------------------------------- %
 \section{Free Body Diagram}
 % ---------------------------------------------------------------------------- %
-
+\begin{figure}[!htp]
+   \begin{minipage}[c]{.4\textwidth}
+      \input{fbd}
+   \end{minipage}%
+   \begin{minipage}[c]{.6\textwidth}
+     \center
+     \begin{tabular}{rl}
+     $\theta$:& Angle of spring relative to vertical\\
+     $\phi$:& Angle of bar relative to vertical\\
+     $G$:&Center of gravity of the bar\\
+   \end{tabular}
+   \end{minipage}
+\end{figure}
 % ---------------------------------------------------------------------------- %
 \section{Coordinate Frame} \label{section:coord}
 % ---------------------------------------------------------------------------- %
-
+\begin{figure}[ht]
+    \begin{minipage}[c]{.4\textwidth}
+      \center
+      \label{coord}
+      \input{coord}
+      % \caption{Coordinate Frame}
+      \vspace{2ex}
+    \end{minipage}%
+    \begin{minipage}[c]{.6\textwidth}
+      \center
+      \begin{tabular}{rl}
+      $\theta$:& Angle of spring relative to vertical\\
+      $\phi$:& Angle of bar relative to vertical\\
+    \end{tabular}
+    \end{minipage}
+\end{figure}
 % ---------------------------------------------------------------------------- %
 \section{Sum of Forces}
 % ---------------------------------------------------------------------------- %
