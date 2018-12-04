@@ -399,8 +399,6 @@ INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/lm/ec-lmtt12.tfm
 INPUT fbd.tex
 INPUT fbd.tex
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/lm/ec-lmri12.tfm
-INPUT coord.tex
-INPUT coord.tex
 INPUT images/spring_0-0.pdf
 INPUT ./images/spring_0-0.pdf
 INPUT ./images/spring_0-0.pdf

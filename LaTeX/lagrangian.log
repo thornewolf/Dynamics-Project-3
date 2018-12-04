@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.16)  3 DEC 2018 20:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.7.16)  3 DEC 2018 23:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1085,13 +1085,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout4 = `lagrangian.toc'.
 
  (./lagrangian.lof
-LaTeX Font Info:    Calculating math sizes for size <8.39996> on input line 4.
+LaTeX Font Info:    Calculating math sizes for size <8.39996> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8.39996> on input line 4.
+(Font)              <8.39996> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5.87994> on input line 4.
+(Font)              <5.87994> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <4.19998> on input line 4.
+(Font)              <4.19998> on input line 3.
 )
 \tf@lof=\write5
 \openout5 = `lagrangian.lof'.
@@ -1104,44 +1104,44 @@ LaTeX Font Info:    Try loading font information for T1+lmtt on input line 87.
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [1
 
-] (./fbd.tex) (./coord.tex) [2]
+] (./fbd.tex) [2]
 <images/spring_0-0.pdf, id=31, 386.23114pt x 174.45905pt>
 File: images/spring_0-0.pdf Graphic file (type pdf)
 <use images/spring_0-0.pdf>
-Package pdftex.def Info: images/spring_0-0.pdf  used on input line 148.
+Package pdftex.def Info: images/spring_0-0.pdf  used on input line 193.
 (pdftex.def)             Requested size: 386.2302pt x 174.4586pt.
 <images/spring_18-9.pdf, id=32, 386.23114pt x 174.45905pt>
 File: images/spring_18-9.pdf Graphic file (type pdf)
 <use images/spring_18-9.pdf>
-Package pdftex.def Info: images/spring_18-9.pdf  used on input line 157.
+Package pdftex.def Info: images/spring_18-9.pdf  used on input line 202.
 (pdftex.def)             Requested size: 386.2302pt x 174.4586pt.
 <images/angles_18-9.pdf, id=33, 386.23114pt x 174.45905pt>
 File: images/angles_18-9.pdf Graphic file (type pdf)
 <use images/angles_18-9.pdf>
-Package pdftex.def Info: images/angles_18-9.pdf  used on input line 166.
+Package pdftex.def Info: images/angles_18-9.pdf  used on input line 211.
 (pdftex.def)             Requested size: 386.2302pt x 174.4586pt.
 <images/spring_6-3.pdf, id=34, 386.23114pt x 174.45905pt>
 File: images/spring_6-3.pdf Graphic file (type pdf)
 <use images/spring_6-3.pdf>
-Package pdftex.def Info: images/spring_6-3.pdf  used on input line 175.
+Package pdftex.def Info: images/spring_6-3.pdf  used on input line 220.
 (pdftex.def)             Requested size: 386.2302pt x 174.4586pt.
 <images/angles_6-3.pdf, id=35, 402.64842pt x 174.12845pt>
 File: images/angles_6-3.pdf Graphic file (type pdf)
 <use images/angles_6-3.pdf>
-Package pdftex.def Info: images/angles_6-3.pdf  used on input line 184.
+Package pdftex.def Info: images/angles_6-3.pdf  used on input line 229.
 (pdftex.def)             Requested size: 402.64743pt x 174.128pt.
  [3 <./images/spring_0-0.pdf> <./images/spring_18-9.pdf>] [4 <./images/angles_18-9.pdf> <./images/spring_6-3.pdf> <./images/angles_6-3.pdf>] [5] [6] [7] (./lagrangian.aux) ) 
 Here is how much of TeX's memory you used:
- 35291 strings out of 494091
- 769231 string characters out of 6163523
- 871649 words of memory out of 5000000
- 38440 multiletter control sequences out of 15000+600000
+ 35319 strings out of 494091
+ 769901 string characters out of 6163523
+ 871614 words of memory out of 5000000
+ 38471 multiletter control sequences out of 15000+600000
  623148 words of font info for 100 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  62i,18n,119p,10406b,1478s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2018basic/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2018basic/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2018basi
 c/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on lagrangian.pdf (9 pages, 370333 bytes).
+Output written on lagrangian.pdf (9 pages, 370884 bytes).
 PDF statistics:
  163 PDF objects out of 1000 (max. 8388607)
  118 compressed objects within 2 object streams

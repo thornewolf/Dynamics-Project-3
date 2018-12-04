@@ -105,34 +105,79 @@ We are asked to determine the following: \\
 % ---------------------------------------------------------------------------- %
 \section{Coordinate Frame} \label{section:coord}
 % ---------------------------------------------------------------------------- %
-\begin{figure}[ht]
-    \begin{minipage}[c]{.4\textwidth}
-      \center
-      \label{coord}
-      \input{coord}
-      \caption{Coordinate Frame}
-      \vspace{2ex}
-    \end{minipage}%
-    \begin{minipage}[c]{.6\textwidth}
-      \center
-      \begin{tabular}{rl}
-      & \quad Motion Variables: \\
-      $\theta$:& Angle of spring relative to vertical\\
-      $\phi$:& Angle of bar relative to vertical\\
-      $r$:& Radial length of spring \\
-      \\
-      & \quad Supplemental Variables: \\
-      $\vec{r}_G$:& Vector to bar center of mass from origin \\
-    \end{tabular}
-    \end{minipage}
-\end{figure}
+
+
+\begin{tikzpicture}
+
+  \pgfmathsetmacro{\Gvec}{1.5}
+  \pgfmathsetmacro{\myAngle}{20}
+
+  \coordinate (centro) at (0,0);
+  \draw[dashed,gray,-] (centro) -- ++ (0,-2) node (vert1) [black,below]{$ $};
+
+  \draw (centro) -- ++(270+\myAngle:.85) coordinate (spring1);
+  \draw[decorate, gray,decoration={snake, segment length=6, amplitude=2.4}] (spring1) -- ++(270+\myAngle:1.5) coordinate (spring);
+
+  \draw (spring) -- ++(270+\myAngle:.5) coordinate (spring2);
+  \pic [draw,angle radius=20,->, "$\theta~$", angle eccentricity=1.6] {angle = vert1--centro--spring};
+
+  % \draw[->] (.85,0) -- ++(270+\myAngle:2.65) coordinate (r);
+  % \draw ($(.85,0) + (270+\myAngle:2.75/2)$) node[label=0:$r$] {};
+  \draw (270+\myAngle:2.2) node[label=0:$r$] {};
+  % \draw ($(.25,0) + (270+\myAngle:2.75/1.5)$) node[label=$r$] {};
+
+  \draw[gray,->] (0,0) -- ++ (1.5,0) node (x) {};
+  \draw[gray,->] (0,0) -- ++ (0,1.5) node (y) {};
+  \draw (x) node[label=east:$x$] {};
+  \draw (y) node[label=north:$y$] {};
+
+  \draw[dashed,gray,-] (spring2) -- ++ (0,-2) node (vert2) [black,below] {};
+  \draw[double distance = .75mm,line cap=round,gray] (spring2) -- ++(270+\myAngle+50:2.85) coordinate (bar);
+
+  \pic [draw,angle radius=20,->, "$\phi$", angle eccentricity=1.5] {angle = vert2--spring2--bar};
+  \draw [thick,->] (0,0) -- (spring2);
+
+  \fill[black] ($(spring2) + (340:1.425)$) circle (0.03) coordinate (g);
+
+  % \draw[gray,dashed,domain=-45:0] plot ({2.85*sin(20) + 1.425*cos(\x)},
+                                          % {-2.85*cos(20) + 1.425*sin(\x)});
+
+  % \draw ($(spring2) + (320:1.425)$) node[label] {$G$};
+
+  \draw [dashed,<-] (g) -- node[right,near start] {$\vec{r}_G$}  (0,0);
+  \fill[black] (centro) circle (0.075);
+\end{tikzpicture}
+
+
+
+% \begin{figure}[ht]
+%     \begin{minipage}[c]{.4\textwidth}
+%       \center
+%       \label{coord}
+%       \input{coord}
+%       \caption{Coordinate Frame}
+%       \vspace{2ex}
+%     \end{minipage}%
+%     \begin{minipage}[c]{.6\textwidth}
+%       \center
+%       \begin{tabular}{rl}
+%       & \quad Motion Variables: \\
+%       $\theta$:& Angle of spring relative to vertical\\
+%       $\phi$:& Angle of bar relative to vertical\\
+%       $r$:& Radial length of spring \\
+%       \\
+%       & \quad Supplemental Variables: \\
+%       $\vec{r}_G$:& Vector to bar center of mass from origin \\
+%     \end{tabular}
+%     \end{minipage}
+% \end{figure}
 % ---------------------------------------------------------------------------- %
 \section{Sum of Forces}
 % ---------------------------------------------------------------------------- %
 % ---------------------------------------------------------------------------- %
 \section{Constraints}
 % ---------------------------------------------------------------------------- %
-The system is fully constrained, therefore no constrain equations were needed to
+The system is fully constrained, therefore no constraint equations were needed to
 solve the problem.
 % ---------------------------------------------------------------------------- %
 \section{Solve for the Equations of Motion}
@@ -143,7 +188,7 @@ solve the problem.
 \section{Solve the Equations of Motion}
 % ---------------------------------------------------------------------------- %
 \begin{figure}[!htp]
-  \caption{Numerical Solution Motion Behavior Plots, ($\theta_o:~0,~\phi_o:~0$)}
+  \caption{Numerical Solution Motion Behavior Plot, ($\theta_o:~0,~\phi_o:~0$)}
   \begin{subfigure}[t]{\textwidth}
   \includegraphics[center]{spring_0-0}
   \caption{Spring Length vs. Time}
