@@ -7,13 +7,14 @@
   \draw[dashed,gray,-] (centro) -- ++ (0,-2) node (vert1) [black,below]{$ $};
 
   \draw (centro) -- ++(270+\myAngle:.85) coordinate (spring1);
-  \draw[decorate, decoration={snake, segment length=6, amplitude=2.4}] (spring1) -- ++(270+\myAngle:1.5) coordinate (spring);
+  \draw[decorate, gray,decoration={snake, segment length=6, amplitude=2.4}] (spring1) -- ++(270+\myAngle:1.5) coordinate (spring);
+
   \draw (spring) -- ++(270+\myAngle:.5) coordinate (spring2);
   \pic [draw,angle radius=20,->, "$\theta~$", angle eccentricity=1.6] {angle = vert1--centro--spring};
 
-  \draw[->] (.85,0) -- ++(270+\myAngle:2.65) coordinate (r);
-  \draw ($(.85,0) + (270+\myAngle:2.75/2)$) node[label=0:$r$] {};
-  \draw ($(.25,0) + (270+\myAngle:2.75/1.5)$) node[label=$k$] {};
+  % \draw[->] (.85,0) -- ++(270+\myAngle:2.65) coordinate (r);
+  % \draw ($(.85,0) + (270+\myAngle:2.75/2)$) node[label=0:$r$] {};
+  \draw ($(.25,0) + (270+\myAngle:2.75/1.5)$) node[label=$r$] {};
 
   \draw[gray,->] (0,0) -- ++ (1.5,0) node (x) {};
   \draw[gray,->] (0,0) -- ++ (0,1.5) node (y) {};
@@ -21,12 +22,14 @@
   \draw (y) node[label=north:$y$] {};
 
   \draw[dashed,gray,-] (spring2) -- ++ (0,-2) node (vert2) [black,below] {};
-  \draw[double distance = .75mm,line cap=round] (spring2) -- ++(270+\myAngle+10:2.85) coordinate (bar);
+  \draw[double distance = .75mm,line cap=round,gray] (spring2) -- ++(270+\myAngle+10:2.85) coordinate (bar);
 
   \pic [draw,angle radius=20,->, "$\phi$", angle eccentricity=1.5] {angle = vert2--spring2--bar};
+  \draw [thick,->] (0,0) -- (spring2);
 
-  % \fill[black] ($(spring2) + (305:1.425)$) circle (0.03) coordinate (g);
-  % \draw ($(spring2) + (320:1.425)$) node[label] {$G$};
+  \fill[black] ($(spring2) + (305:1.425)$) circle (0.03) coordinate (g);
+  \draw ($(spring2) + (320:1.425)$) node[label] {$G$};
 
+  \draw [dashed,->] (0,0) -- node[right,near end] {$\vec{r}_G$} (g);
   \fill[black] (centro) circle (0.075);
 \end{tikzpicture}

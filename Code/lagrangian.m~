@@ -103,7 +103,7 @@ grid on
 xlabel('Time, sec')
 ylabel('Length, m')
 plot(T,S(:,5),'DisplayName', 'Spring Length, r')
-legend('show','Location','northoutside')
+legend('show')
 set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperUnits', 'inches');
 set(gcf, 'PaperPosition', [1 1 6 2.5]);
@@ -116,11 +116,11 @@ grid on
 xlabel('Time, sec')
 ylabel('Length, m')
 plot(T,S(:,5),'DisplayName', 'Spring Length, r')
-legend('show','Location','northoutside')
+legend('show')
 set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperUnits', 'inches');
 set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('18-9:Spring','-dpdf');
+print('0-','-dpdf');
 figure(3)
 hold on
 grid on
@@ -128,11 +128,7 @@ xlabel('Time, sec')
 ylabel('Angular Position, rad')
 plot(T,S(:,1),'DisplayName', 'Spring Angular Deflection, \theta')
 plot(T,S(:,3),'DisplayName', 'Bar Angular Deflection, \phi')
-legend('show','Location','northoutside')
-set(gcf, 'PaperPositionMode', 'manual');
-set(gcf, 'PaperUnits', 'inches');
-set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('18-9:Angles','-dpdf');
+legend('show')
 
 [T,S] = ode45(@(t,s)EOM(t,s,c.l2, c.m2, c.L0, c.g, c.k), linspace(0,10,1001),...
     [pi/6, 0, pi/3, 0, c.L0, 0]);
@@ -142,20 +138,10 @@ grid on
 xlabel('Time, sec')
 ylabel('Length, m')
 plot(T,S(:,5),'DisplayName', 'Spring Length, r')
-legend('show','Location','northoutside')
-set(gcf, 'PaperPositionMode', 'manual');
-set(gcf, 'PaperUnits', 'inches');
-set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('6-3:Spring','-dpdf');
+legend('show')
 figure(5)
 hold on
 grid on
-xlabel('Time, sec')
-ylabel('Angular Position, rad')
 plot(T,S(:,1),'DisplayName', 'Spring Angular Deflection, \theta')
 plot(T,S(:,3),'DisplayName', 'Bar Angular Deflection, \phi')
-legend('show','Location','northoutside')
-set(gcf, 'PaperPositionMode', 'manual');
-set(gcf, 'PaperUnits', 'inches');
-set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('6-3:Angles','-dpdf');
+legend('show')

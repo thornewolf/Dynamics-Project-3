@@ -21,10 +21,9 @@
 \newcommand{\eqname}[1]{\tag*{#1}}% Tag equation with name
 
 \lstMakeShortInline[style=Matlab-editor]| % matlab inline escape character
-\usetikzlibrary{arrows}
+\usetikzlibrary{arrows,calc,patterns,angles,quotes}
 \usetikzlibrary{decorations.pathmorphing} % for snakes!
 \graphicspath{{images/}}
-\usetikzlibrary{calc,patterns,angles,quotes}
 
 \allsectionsfont{\centering}
 \renewcommand\thesection{\arabic{section}}
@@ -53,8 +52,9 @@
 \begin{minipage}[c]{.6\textwidth}
   The pendulum system consists of a rigid bar pinned to the free end of a linear spring,
   which rotates about its opposite end at a fixed point; there are three degrees of freedom,
-  since each bar has an individual rotation with respect to the vertical, as well as the
-  radial distance the bar is from the point of rotation.
+  since the spring and bar each have an individual angular deflection with respect to the vertical,
+  and the radial distance the bar is from the point of rotation due to the variation in the
+  length of the spring.
 \end{minipage}
 \end{figure}
 
@@ -63,7 +63,7 @@
  \multicolumn{1}{c}{Constants:} && \multicolumn{1}{c}{Assumptions:} \\
  Bar Mass: &$m$ = 1 kg & No Losses\\
  Bar Length: &$L$ = 1 m & Released from Rest\\
- Gravity: &$g$ = 9.81$\sfrac{m}{s^2}$ &Slender Bar \\
+ Gravity: &$g$ = 9.81$\sfrac{m}{s^2}$ &Uniform Slender Bar \\
  Linear Spring: &&Planar\\
  \quad Spring Coefficient:& $k = 25~\sfrac{N}{m}$ &Rigid-Body Dynamics \\
  \quad Unstretched Length:& $L$ = 0.5 m \\
@@ -98,8 +98,6 @@ We are asked to determine the following: \\
    \begin{minipage}[c]{.6\textwidth}
      \center
      \begin{tabular}{rl}
-     $\theta$:& Angle of spring relative to vertical\\
-     $\phi$:& Angle of bar relative to vertical\\
      $G$:&Center of gravity of the bar\\
    \end{tabular}
    \end{minipage}
@@ -112,14 +110,19 @@ We are asked to determine the following: \\
       \center
       \label{coord}
       \input{coord}
-      % \caption{Coordinate Frame}
+      \caption{Coordinate Frame}
       \vspace{2ex}
     \end{minipage}%
     \begin{minipage}[c]{.6\textwidth}
       \center
       \begin{tabular}{rl}
+      & \quad Motion Variables: \\
       $\theta$:& Angle of spring relative to vertical\\
       $\phi$:& Angle of bar relative to vertical\\
+      $r$:& Radial length of spring \\
+      \\
+      & \quad Supplemental Variables: \\
+      $\vec{r}_G$:& Vector to bar center of mass from origin \\
     \end{tabular}
     \end{minipage}
 \end{figure}
@@ -129,6 +132,8 @@ We are asked to determine the following: \\
 % ---------------------------------------------------------------------------- %
 \section{Constraints}
 % ---------------------------------------------------------------------------- %
+The system is fully constrained, therefore no constrain equations were needed to
+solve the problem.
 % ---------------------------------------------------------------------------- %
 \section{Solve for the Equations of Motion}
 % ---------------------------------------------------------------------------- %
@@ -137,6 +142,51 @@ We are asked to determine the following: \\
 % ---------------------------------------------------------------------------- %
 \section{Solve the Equations of Motion}
 % ---------------------------------------------------------------------------- %
+\begin{figure}[!htp]
+  \caption{Numerical Solution Motion Behavior Plots, ($\theta_o:~0,~\phi_o:~0$)}
+  \begin{subfigure}[t]{\textwidth}
+  \includegraphics[center]{spring_0-0}
+  \caption{Spring Length vs. Time}
+  \label{fig:spring:0:0}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htp]
+  \caption{Numerical Solution Motion Behavior Plots, ($\theta_o:\sfrac{\pi}{18},~\phi_o:\sfrac{\pi}{9}$)}
+\begin{subfigure}[t]{\textwidth}
+  \includegraphics[center]{spring_18-9}
+  \caption{Spring Length vs. Time}
+  \label{fig:spring:18-9}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htp] \ContinuedFloat
+  \phantomcaption
+\begin{subfigure}[t]{\textwidth}
+  \includegraphics[center]{angles_18-9}
+  \caption{Angular Position vs. Time}
+  \label{fig:angles:18-9}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htp]
+  \caption{Numerical Solution Motion Behavior Plots, ($\theta_o:\sfrac{\pi}{6},~\phi_o:\sfrac{\pi}{3}$)}
+\begin{subfigure}[t]{\textwidth}
+  \includegraphics[center]{spring_6-3}
+  \caption{Spring Length vs. Time}
+  \label{fig:spring:6-3}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htp] \ContinuedFloat
+  \phantomcaption
+\begin{subfigure}[t]{\textwidth}
+  \includegraphics[center]{angles_6-3}
+  \caption{Angular Position vs. Time}
+  \label{fig:angles:6-3}
+\end{subfigure}
+\end{figure}
+
 % ---------------------------------------------------------------------------- %
 \section{Does it Make Sense?}
 % ---------------------------------------------------------------------------- %

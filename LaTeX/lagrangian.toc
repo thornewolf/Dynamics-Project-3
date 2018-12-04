@@ -8,8 +8,8 @@
 \contentsline {section}{\numberline {7}Solve the Equations of Motion}{3}
 \contentsline {section}{\numberline {8}Does it Make Sense?}{3}
 \contentsline {subsection}{\numberline {8.1}Units}{3}
-\contentsline {subsection}{\numberline {8.2}Magnitude}{3}
-\contentsline {section}{\numberline {9}Appendix}{3}
-\contentsline {subsection}{\numberline {9.1}Attributions}{3}
-\contentsline {subsection}{\numberline {9.2}Analytical Solution}{4}
-\contentsline {subsection}{\numberline {9.3}Numerical Solution}{5}
+\contentsline {subsection}{\numberline {8.2}Magnitude}{5}
+\contentsline {section}{\numberline {9}Appendix}{5}
+\contentsline {subsection}{\numberline {9.1}Attributions}{5}
+\contentsline {subsection}{\numberline {9.2}Analytical Solution}{6}
+\contentsline {subsection}{\numberline {9.3}Numerical Solution}{7}
