@@ -1,15 +1,16 @@
-\contentsline {section}{\numberline {1}Conceptualize the Problem}{1}
-\contentsline {subsection}{\numberline {1.1}Constants and Assumptions}{1}
-\contentsline {section}{\numberline {2}Free Body Diagram}{2}
-\contentsline {section}{\numberline {3}Coordinate Frame}{2}
-\contentsline {section}{\numberline {4}Sum of Forces}{2}
-\contentsline {section}{\numberline {5}Constraints}{2}
-\contentsline {section}{\numberline {6}Solve for the Equations of Motion}{2}
-\contentsline {section}{\numberline {7}Solve the Equations of Motion}{3}
-\contentsline {section}{\numberline {8}Does it Make Sense?}{3}
-\contentsline {subsection}{\numberline {8.1}Units}{3}
-\contentsline {subsection}{\numberline {8.2}Magnitude}{5}
-\contentsline {section}{\numberline {9}Appendix}{5}
-\contentsline {subsection}{\numberline {9.1}Attributions}{5}
-\contentsline {subsection}{\numberline {9.2}Analytical Solution}{6}
-\contentsline {subsection}{\numberline {9.3}Numerical Solution}{7}
+\contentsline {section}{\numberline {1}Conceptualize the Problem}{1}{section.0.1}
+\contentsline {subsection}{\numberline {1.1}Constants and Assumptions}{1}{subsection.0.1.1}
+\contentsline {section}{\numberline {2}Free Body Diagram}{2}{section.0.2}
+\contentsline {section}{\numberline {3}Coordinate Frame}{4}{section.0.3}
+\contentsline {section}{\numberline {4}Sum of Forces}{4}{section.0.4}
+\contentsline {section}{\numberline {5}Constraints}{4}{section.0.5}
+\contentsline {section}{\numberline {6}Solve for the Equations of Motion}{4}{section.0.6}
+\contentsline {subsubsection}{Spring}{4}{section*.6}
+\contentsline {section}{\numberline {7}Solve the Equations of Motion}{6}{section.0.7}
+\contentsline {section}{\numberline {8}Does it Make Sense?}{6}{section.0.8}
+\contentsline {subsection}{\numberline {8.1}Units}{6}{subsection.0.8.1}
+\contentsline {subsection}{\numberline {8.2}Magnitude}{8}{subsection.0.8.2}
+\contentsline {section}{\numberline {9}Appendix}{8}{section.0.9}
+\contentsline {subsection}{\numberline {9.1}Attributions}{8}{subsection.0.9.1}
+\contentsline {subsection}{\numberline {9.2}Analytical Solution}{9}{subsection.0.9.2}
+\contentsline {subsection}{\numberline {9.3}Numerical Solution}{10}{subsection.0.9.3}

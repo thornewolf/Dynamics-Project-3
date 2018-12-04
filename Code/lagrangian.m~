@@ -31,9 +31,9 @@ T2 = 1/2*m2*v_g_squared + 1/24*m2*l2^2*phidot^2;
 T = T1 + T2;
 
 % Potential Energy of Spring
-V1 = 1/2*k*(l1t-L0)^2;
+V1 = 0;
 % Potential Energy of Bar
-V2 = - m2*g*(l1t*cos(thetat)+l2/2*cos(phit));
+V2 = 1/2*k*(l1t-L0)^2 - m2*g*(l1t*cos(thetat)+l2/2*cos(phit));
 % Total Potential Energy
 V = V1 + V2;
 
@@ -96,10 +96,7 @@ EOM = odeFunction([thetadot; thetaEOM; phidot; phiEOM; l1dot; l1EOM],...
 
 
 options = odeset('AbsTol', 1e-9, 'RelTol', 1e-6);
-
-%-------------------------------------------------------------------------%
-% 0 and 0
-%-------------------------------------------------------------------------%
+              
 [T,S] = ode45(@(t,s)EOM(t,s,c.l2, c.m2, c.L0, c.g, c.k), linspace(0,10,1001),...
     [0, 0, 0, 0, c.L0, 0]);
 figure(1)
@@ -113,21 +110,17 @@ set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperUnits', 'inches');
 set(gcf, 'PaperPosition', [1 1 6 2.5]);
 print('0-0','-dpdf');
-%-------------------------------------------------------------------------%
 [T,S] = ode45(@(t,s)EOM(t,s,c.l2, c.m2, c.L0, c.g, c.k), linspace(0,10,1001),...
     [0, 0, 0, 0, c.L0, 0],options);
 xlim([9.95 10])
 plot(T,S(:,5),'DisplayName', 'Tighter Tol Spring Length, r')
-ldg = legend('show','Location','northoutside');
-ldg.NumColumns = 2;
+legend('show','Location','northoutside')
 set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperUnits', 'inches');
 set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('0-0-tol','-dpdf');
+print('0-0 tol','-dpdf');
 
-%-------------------------------------------------------------------------%
-%     pi/18 and pi/9
-%-------------------------------------------------------------------------%
+
 [T,S] = ode45(@(t,s)EOM(t,s,c.l2, c.m2, c.L0, c.g, c.k), linspace(0,10,1001),...
     [pi/18, 0, pi/9, 0, c.L0, 0]);
 
@@ -137,12 +130,11 @@ grid on
 xlabel('Time, sec')
 ylabel('Length, m')
 plot(T,S(:,5),'DisplayName', 'Spring Length, r')
-ldg = legend('show','Location','northoutside');
-ldg.NumColumns = 2;
+legend('show','Location','northoutside')
 set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperUnits', 'inches');
 set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('18-9-spring','-dpdf');
+print('18-9:Spring','-dpdf');
 figure(3)
 hold on
 grid on
@@ -150,87 +142,63 @@ xlabel('Time, sec')
 ylabel('Angular Position, rad')
 plot(T,S(:,1),'DisplayName', 'Spring Angular Deflection, \theta')
 plot(T,S(:,3),'DisplayName', 'Bar Angular Deflection, \phi')
-ldg = legend('show','Location','northoutside');
-ldg.NumColumns = 2;
+legend('show','Location','northoutside')
 set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperUnits', 'inches');
 set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('18-9-angles','-dpdf');
-%-------------------------------------------------------------------------%
+print('18-9:Angles','-dpdf');
+
 [T,S] = ode45(@(t,s)EOM(t,s,c.l2, c.m2, c.L0, c.g, c.k), linspace(0,10,1001),...
     [pi/18, 0, pi/9, 0, c.L0, 0],options);
 
 figure(2)
 xlim([9.75 10])
 plot(T,S(:,5),'DisplayName', 'Tighter Tolerance Spring Length, r')
-ldg = legend('show','Location','northoutside');
-ldg.NumColumns = 2;
+legend('show','Location','northoutside')
 set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperUnits', 'inches');
 set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('18-9-spring-tol','-dpdf');
+print('18-9:Spring Tol','-dpdf');
 figure(3)
 xlim([9.95 10])
 plot(T,S(:,1),'DisplayName', 'Tighter Tolerance Spring Angular Deflection, \theta')
 plot(T,S(:,3),'DisplayName', 'Tighter Tolerance Bar Angular Deflection, \phi')
-ldg = legend('show','Location','northoutside');
+ldg = legend('show','Location','northoutside')
 ldg.NumColumns = 2;
 set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperUnits', 'inches');
 set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('18-9-angles-tol','-dpdf');
+print('18-9:Angles Tol','-dpdf');
 
-%-------------------------------------------------------------------------%
-%  pi/6 and pi/3
-%-------------------------------------------------------------------------%
 
-[T,S] = ode45(@(t,s)EOM(t,s,c.l2, c.m2, c.L0, c.g, c.k), linspace(0,10,1001),...
-    [pi/6, 0, pi/3, 0, c.L0, 0]);
-figure(4)
-hold on
-grid on
-xlabel('Time, sec')
-ylabel('Length, m')
-plot(T,S(:,5),'DisplayName', 'Spring Length, r')
-legend('show','Location','northoutside')
-set(gcf, 'PaperPositionMode', 'manual');
-set(gcf, 'PaperUnits', 'inches');
-set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('6-3-spring','-dpdf');
-figure(5)
-hold on
-grid on
-xlabel('Time, sec')
-ylabel('Angular Position, rad')
-plot(T,S(:,1),'DisplayName', 'Spring Angular Deflection, \theta')
-plot(T,S(:,3),'DisplayName', 'Bar Angular Deflection, \phi')
-legend('show','Location','northoutside')
-set(gcf, 'PaperPositionMode', 'manual');
-set(gcf, 'PaperUnits', 'inches');
-set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('6-3-angles','-dpdf');
-
-%-------------------------------------------------------------------------%
-[T,S] = ode45(@(t,s)EOM(t,s,c.l2, c.m2, c.L0, c.g, c.k), linspace(0,10,1001),...
-    [pi/6, 0, pi/3, 0, c.L0, 0],options);
-figure(4)
-ldg = legend('show','Location','northoutside');
-ldg.NumColumns = 2;
-xlim([9.95 10])
-plot(T,S(:,5),'DisplayName', 'Tighter Tolerance Spring Length, r')
-legend('show','Location','northoutside')
-set(gcf, 'PaperPositionMode', 'manual');
-set(gcf, 'PaperUnits', 'inches');
-set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('6-3-spring-tol','-dpdf');
-figure(5)
-ldg = legend('show','Location','northoutside');
-ldg.NumColumns = 2;
-xlim([9.95 10])
-plot(T,S(:,1),'DisplayName', 'Tighter Tolerance Spring Angular Deflection, \theta')
-plot(T,S(:,3),'DisplayName', 'Tighter Tolerance Bar Angular Deflection, \phi')
-legend('show','Location','northoutside')
-set(gcf, 'PaperPositionMode', 'manual');
-set(gcf, 'PaperUnits', 'inches');
-set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('6-3-angles-tol','-dpdf');
+% 
+% 
+% 
+% 
+% 
+% 
+% [T,S] = ode45(@(t,s)EOM(t,s,c.l2, c.m2, c.L0, c.g, c.k), linspace(0,10,1001),...
+%     [pi/6, 0, pi/3, 0, c.L0, 0]);
+% figure(4)
+% hold on
+% grid on
+% xlabel('Time, sec')
+% ylabel('Length, m')
+% plot(T,S(:,5),'DisplayName', 'Spring Length, r')
+% legend('show','Location','northoutside')
+% set(gcf, 'PaperPositionMode', 'manual');
+% set(gcf, 'PaperUnits', 'inches');
+% set(gcf, 'PaperPosition', [1 1 6 2.5]);
+% print('6-3:Spring','-dpdf');
+% figure(5)
+% hold on
+% grid on
+% xlabel('Time, sec')
+% ylabel('Angular Position, rad')
+% plot(T,S(:,1),'DisplayName', 'Spring Angular Deflection, \theta')
+% plot(T,S(:,3),'DisplayName', 'Bar Angular Deflection, \phi')
+% legend('show','Location','northoutside')
+% set(gcf, 'PaperPositionMode', 'manual');
+% set(gcf, 'PaperUnits', 'inches');
+% set(gcf, 'PaperPosition', [1 1 6 2.5]);
+% print('6-3:Angles','-dpdf');

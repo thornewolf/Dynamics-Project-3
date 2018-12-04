@@ -9,6 +9,7 @@
 \usepackage{cancel} % arrow and cross math cancel symbol
 \usepackage[numbered]{matlab-prettifier} % including matlab w/ syntax highlighting
 \usepackage[T1]{fontenc} % prettier matlab font
+\usepackage[utf8]{inputenc}
 \usepackage{circuitikz} % drawing fancy shit
 \usepackage{xfrac} % more legible inline fractions (\sfrac)
 \usepackage{lmodern} % font package for above
@@ -17,18 +18,26 @@
 \usepackage{amsmath} % more math symbols and shit
 \usepackage{enumitem} % add arguments for enumerate to change style
 \usepackage[list=true]{subcaption} % subfigures with list of figure support
+\usepackage{BOONDOX-cal} % fancy mathtype script
+\usepackage[hidelinks]{hyperref} % clickable table of contents
+\hypersetup{
+    colorlinks=false, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+}
 
 \newcommand{\eqname}[1]{\tag*{#1}}% Tag equation with name
 
 \lstMakeShortInline[style=Matlab-editor]| % matlab inline escape character
 \usetikzlibrary{arrows,calc,patterns,angles,quotes}
-\usetikzlibrary{decorations.pathmorphing} % for snakes!
+\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing} % for snakes!
 \graphicspath{{images/}}
 
 \allsectionsfont{\centering}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand{\thefootnote}{\arabic{footnote}}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
+
+\newcommand{\Lag}{\mathcal{L}} % lagrangian L
 
 \begin{document}
 
@@ -43,8 +52,6 @@
 % ---------------------------------------------------------------------------- %
 \section{Conceptualize the Problem}
 % ---------------------------------------------------------------------------- %
-
-
 \begin{figure}[h]
   \begin{minipage}[c]{.4\textwidth}
   \input{concept}
@@ -92,88 +99,122 @@ We are asked to determine the following: \\
 \section{Free Body Diagram}
 % ---------------------------------------------------------------------------- %
 \begin{figure}[!htp]
-   \begin{minipage}[c]{.4\textwidth}
+   \begin{minipage}[c]{.5\textwidth}
+     \begin{subfigure}{\textwidth}
+       \caption{Free Body Diagram}
+       \center
       \input{fbd}
+      \end{subfigure}
    \end{minipage}%
-   \begin{minipage}[c]{.6\textwidth}
-     \center
-     \begin{tabular}{rl}
-     $G$:&Center of gravity of the bar\\
-   \end{tabular}
+   \begin{minipage}[c]{.5\textwidth}
+     \begin{subfigure}{\textwidth}
+       \caption{Acceleration Diagram}
+       \center
+       \input{ad}
+    \end{subfigure}
    \end{minipage}
+   \caption{Acceleration and Free Body Diagrams}
 \end{figure}
-% ---------------------------------------------------------------------------- %
-\section{Coordinate Frame} \label{section:coord}
-% ---------------------------------------------------------------------------- %
+\begin{minipage}[c]{.5\textwidth}
+  \center
+  \begin{tabular}{rl}
+  $G$:&Center of gravity of the bar\\
+  $\ell_0$:& Spring unstretched length \\
+  $\delta$:& Spring deflection \\
+  $k$:& Spring constant \\
+  $V_{bar}$:& Potential energy of bar \\
+\end{tabular}
+\end{minipage}%
+\begin{minipage}[c]{.5\textwidth}
+ \center
+ \begin{tabular}{rl}
+ $G$:&Center of gravity of the bar\\
+\end{tabular}
+\end{minipage}
+\newpage
 
 
 \begin{tikzpicture}
 
   \pgfmathsetmacro{\Gvec}{1.5}
-  \pgfmathsetmacro{\myAngle}{20}
+  \pgfmathsetmacro{\myAngle}{25}
 
   \coordinate (centro) at (0,0);
-  \draw[dashed,gray,-] (centro) -- ++ (0,-2) node (vert1) [black,below]{$ $};
+  % \draw[dashed,gray,-] (centro) -- ++ (0,-2) node (vert1) [black,below]{$ $};
 
   \draw (centro) -- ++(270+\myAngle:.85) coordinate (spring1);
-  \draw[decorate, gray,decoration={snake, segment length=6, amplitude=2.4}] (spring1) -- ++(270+\myAngle:1.5) coordinate (spring);
+  % \draw[decorate, gray, decoration={snake, segment length=6, amplitude=2.4}]
+    % (spring1) -- ++(270+\myAngle:1.5) coordinate(spring);
+  % \draw [gray] (spring) -- ++(270+\myAngle:.5) coordinate (spring2);
+  \draw[decorate, decoration={snake, segment length=8, amplitude=2.1}]
+    (spring1) -- ++(270+\myAngle:1.8) coordinate (springs);
+  \draw (springs) -- ++(270+\myAngle:.5) coordinate (springs2);
 
-  \draw (spring) -- ++(270+\myAngle:.5) coordinate (spring2);
-  \pic [draw,angle radius=20,->, "$\theta~$", angle eccentricity=1.6] {angle = vert1--centro--spring};
+  % \pic [draw,angle radius=20,->, "$\theta~$", angle eccentricity=1.6] {angle = vert1--centro--spring};
+
+  % \draw [decorate,decoration={brace,amplitude=2pt,raise=4pt}] (0,0) --
+  %   node [xshift=4.1ex,yshift=1.1ex] {$l_0 + \delta$} (springs2);
 
   % \draw[->] (.85,0) -- ++(270+\myAngle:2.65) coordinate (r);
   % \draw ($(.85,0) + (270+\myAngle:2.75/2)$) node[label=0:$r$] {};
-  \draw (270+\myAngle:2.2) node[label=0:$r$] {};
-  % \draw ($(.25,0) + (270+\myAngle:2.75/1.5)$) node[label=$r$] {};
+  % \draw ($(.25,0) + (270+\myAngle:2.75/1.5)$) node[label=$k$] {};
+  % \path (centro) -- node[label={[label distance = 2ex]below:$k$}] (k) {} (spring2);
 
-  \draw[gray,->] (0,0) -- ++ (1.5,0) node (x) {};
-  \draw[gray,->] (0,0) -- ++ (0,1.5) node (y) {};
-  \draw (x) node[label=east:$x$] {};
-  \draw (y) node[label=north:$y$] {};
+  \draw [gray,dashed] (-1,0) -- node[above,near end] (datum) {\textit{datum}} (2.5,0);
+  % \draw[dashed,gray,-] (springs2) -- ++ (0,-2) node (vert2) [black,below] {};
+  \draw[double distance = .75mm,line cap=round] (springs2) -- ++(270+\myAngle+10:2.85) coordinate (bar);
 
-  \draw[dashed,gray,-] (spring2) -- ++ (0,-2) node (vert2) [black,below] {};
-  \draw[double distance = .75mm,line cap=round,gray] (spring2) -- ++(270+\myAngle+50:2.85) coordinate (bar);
+  % \pic [draw,angle radius=20,->, "$\phi$", angle eccentricity=1.5] {angle = vert2--spring2--bar};
 
-  \pic [draw,angle radius=20,->, "$\phi$", angle eccentricity=1.5] {angle = vert2--spring2--bar};
-  \draw [thick,->] (0,0) -- (spring2);
+  \coordinate (g) at ($(springs2) + (305:1.425)$);
+  \pic [draw,->, angle radius=10, angle eccentricity=2,"$\ddot{\phi}$" {yshift=-1ex,xshift=1.5ex}]
+  {angle = springs2--g--bar};
 
-  \fill[black] ($(spring2) + (340:1.425)$) circle (0.03) coordinate (g);
+  \draw [->] (g) -- node [below,xshift=2ex,yshift=1ex] {$\vec{v}_G$} ++ (35:.75) ;
 
-  % \draw[gray,dashed,domain=-45:0] plot ({2.85*sin(20) + 1.425*cos(\x)},
-                                          % {-2.85*cos(20) + 1.425*sin(\x)});
+  \fill[black] (g) circle (0.03);
 
-  % \draw ($(spring2) + (320:1.425)$) node[label] {$G$};
+  \begin{scope}[shift={(springs2)}]
+    \draw[gray,dashed,domain=-25:-85] plot ({1.425*cos(\x)}, {1.425*sin(\x)});
+  \end{scope}
 
-  \draw [dashed,<-] (g) -- node[right,near start] {$\vec{r}_G$}  (0,0);
+  % \draw (g) node[label={[label distance = -1ex]225:$G$}] {};
+
   \fill[black] (centro) circle (0.075);
 \end{tikzpicture}
 
 
 
-% \begin{figure}[ht]
-%     \begin{minipage}[c]{.4\textwidth}
-%       \center
-%       \label{coord}
-%       \input{coord}
-%       \caption{Coordinate Frame}
-%       \vspace{2ex}
-%     \end{minipage}%
-%     \begin{minipage}[c]{.6\textwidth}
-%       \center
-%       \begin{tabular}{rl}
-%       & \quad Motion Variables: \\
-%       $\theta$:& Angle of spring relative to vertical\\
-%       $\phi$:& Angle of bar relative to vertical\\
-%       $r$:& Radial length of spring \\
-%       \\
-%       & \quad Supplemental Variables: \\
-%       $\vec{r}_G$:& Vector to bar center of mass from origin \\
-%     \end{tabular}
-%     \end{minipage}
-% \end{figure}
+
+\newpage
+% ---------------------------------------------------------------------------- %
+\section{Coordinate Frame} \label{section:coord}
+% ---------------------------------------------------------------------------- %
+\begin{figure}[!htp]
+    \begin{minipage}[c]{.4\textwidth}
+      \center
+      \input{coord}
+      \caption{Coordinate Frame}
+      \label{coord}
+      \vspace{2ex}
+    \end{minipage}%
+    \begin{minipage}[c]{.6\textwidth}
+      \center
+      \begin{tabular}{rl}
+      & \quad Motion Variables: \\
+      $\theta$:& Angle of spring relative to vertical\\
+      $\phi$:& Angle of bar relative to vertical\\
+      $r$:& Radial length of spring \\
+      \\
+      & \quad Supplemental Variables: \\
+      $\vec{r}_G$:& Vector to bar center of mass from origin \\
+    \end{tabular}
+    \end{minipage}
+\end{figure}
 % ---------------------------------------------------------------------------- %
 \section{Sum of Forces}
 % ---------------------------------------------------------------------------- %
+
 % ---------------------------------------------------------------------------- %
 \section{Constraints}
 % ---------------------------------------------------------------------------- %
@@ -182,6 +223,41 @@ solve the problem.
 % ---------------------------------------------------------------------------- %
 \section{Solve for the Equations of Motion}
 % ---------------------------------------------------------------------------- %
+\subsubsection{Spring}
+
+From Figure (\ref{coord}),
+$$\vec{r}_G = \left[\ell_s\sin(\theta) + \frac{\ell_b}{2}\sin(\phi)\right]\hat{\textrm{\i}}
+ + \left[-\ell_s\cos(\theta) - \frac{\ell_b}{2}\cos(\phi)\right]\hat{\textrm{\j}}$$
+
+Taking the time derivative,
+$$\frac{d}{dt}\vec{r}_G \equiv \dot{\vec{r}}_G = \vec{v}_G$$
+$$\vec{v}_G =  $$
+
+
+Kinetic Energy of Spring:
+$$T_1 = 0$$
+Kinetic Energy of Bar:
+$$T_2 = \frac{1}{2}m_{b}(\vec{v}_G \cdot \vec{v}_G) + \frac{1}{2}I\omega^2$$
+Since the moment of inertia for a uniform slender bar rotating about its end is
+$\frac{1}{12}
+Total Kinetic Energy:
+$$T = T_1 + T_2$$
+
+Potential Energy of Spring:
+$$V_1 = \frac{1}{2}k\big(\ell_s-\ell_0\big)^2$$
+Potential Energy of Bar
+$$V_2 = - m_bg\big(\ell_s\cos(\theta) + \frac{\ell_b}{2}\cos(\phi)\big)$$
+Total Potential Energy
+$$V = V_1 + V_2$$
+
+
+Lagrangian $\Lag = T - V$.
+
+$$\ddot{\theta} = \frac{d}{dt}\left(\frac{\partial\Lag}{\partial\dot{\theta}}\right) -
+\frac{\partial\Lag}{\partial\theta} = \big(Q_{\theta}\big)_{\text{non}}$$
+
+$$\ddot{\phi} = \frac{d}{dt}\left(\frac{\partial\Lag}{\partial\dot{\phi}}\right) -
+\frac{\partial\Lag}{\partial\phi} = \big(Q_{\phi}\big)_{\text{non}}$$
 
 \newpage
 % ---------------------------------------------------------------------------- %
@@ -258,6 +334,32 @@ Joint Effort &
 \newpage
 \subsection{Numerical Solution} \label{appendix:numerical}
 % \input{matlab}
+% TODO: Add scan of Thorne's work?
+\begin{figure}[!htp]
+  \caption{Comparison Plots of ode45 Tolerance Options}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[center]{1}
+    \caption*{Spring Deflection, ($\theta_o:~0,~\phi_o:~0$)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[center]{2}
+    \caption*{Spring Deflection, ($\theta_o:\sfrac{\pi}{18},~\phi_o:\sfrac{\pi}{9}$)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[center]{4}
+    \caption*{Spring Deflection, ($\theta_o:\sfrac{\pi}{6},~\phi_o:\sfrac{\pi}{3}$)}
+  \end{subfigure}
+\end{figure}
+\begin{figure}[!htp] \ContinuedFloat
+  \begin{subfigure}{\textwidth}
+    \includegraphics[center]{3}
+    \caption*{Bar and Spring Angular Deflection, ($\theta_o:\sfrac{\pi}{18},~\phi_o:\sfrac{\pi}{9}$)}
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[center]{5}
+    \caption*{Bar and Spring Angular Deflection, ($\theta_o:\sfrac{\pi}{6},~\phi_o:\sfrac{\pi}{3}$)}
+  \end{subfigure}
+\end{figure}
 
 \end{flushleft}
 \end{document}
