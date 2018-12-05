@@ -432,7 +432,6 @@ INPUT ad.tex
 INPUT ad.tex
 INPUT coord.tex
 INPUT coord.tex
-INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /usr/local/texlive/2018basic/texmf-dist/tex/latex/boondox/uboondox-cal.fd
 INPUT /usr/local/texlive/2018basic/texmf-dist/tex/latex/boondox/uboondox-cal.fd
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/boondox/BOONDOX-r-cal.tfm
