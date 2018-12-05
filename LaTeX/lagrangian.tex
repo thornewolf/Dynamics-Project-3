@@ -332,6 +332,31 @@ Similarly, the other Equations of Motion can be found in the Appendix -- Numeric
 \end{subfigure}
 \end{figure}
 
+\begin{figure}[!htp] \ContinuedFloat
+  \phantomcaption
+\begin{subfigure}[t]{\textwidth}
+  \includegraphics[center]{Energy1}
+  \caption{Total Energy in the System ($\theta_o:0,~\phi_o:0$)}
+  \label{fig:Energy1}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htp] \ContinuedFloat
+  \phantomcaption
+\begin{subfigure}[t]{\textwidth}
+  \includegraphics[center]{Energy1}
+  \caption{Total Energy in the System ($\theta_o:0,~\phi_o:0$)}
+  \label{fig:Energy2}
+\end{subfigure}
+\end{figure}
+
+Running the ode45 function with a relative tolerance of $1e-5$ and an absolute
+tolerance of $1e-9$ we produce a total energy graph that strays significantly
+less than the default ode45 implementation. The max percentage difference between
+the high and low tolerance integrations in figure \ref{fig:Energy1} is xxx\%.
+The max percentage difference in figure \ref{fig:Energy2} is xxx\%. The max percentage difference in figure \ref{fig:Energy3} is xxx\%.
+
+
 % ---------------------------------------------------------------------------- %
 \section{Does it Make Sense?}
 % ---------------------------------------------------------------------------- %
@@ -384,6 +409,7 @@ Joint Effort &
     \caption*{Bar and Spring Angular Deflection, ($\theta_o:\sfrac{\pi}{6},~\phi_o:\sfrac{\pi}{3}$)}
   \end{subfigure}
 \end{figure}
+
 
 \end{flushleft}
 \end{document}
