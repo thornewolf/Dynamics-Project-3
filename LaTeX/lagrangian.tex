@@ -102,41 +102,34 @@ We are asked to determine the following: \\
   \caption{Acceleration and Free Body Diagrams}
    \begin{minipage}[c]{.5\textwidth}
      \begin{subfigure}{\textwidth}
-       \caption{Free Body Diagram}
-       \label{fbd}
        \center
-      \input{fbd}
+      \input{fbd} \\
+      \vspace{2ex}
+      \caption{Free Body Diagram}
+      \label{fbd}
       \end{subfigure}
    \end{minipage}%
    \begin{minipage}[c]{.5\textwidth}
      \begin{subfigure}{\textwidth}
+       \center
+       \input{ad} \\
+       \vspace{3ex}
        \caption{Acceleration Diagram}
        \label{ad}
-       \center
-       \input{ad}
     \end{subfigure}
    \end{minipage}
 \end{figure}
-\begin{minipage}[c]{.5\textwidth}
   \center
-  \begin{tabular}{rl}
-  $G$:&Center of gravity of the bar\\
-  $\ell_0$:& Spring unstretched length \\
-  $\delta$:& Spring deflection \\
-  $k$:& Spring constant \\
+  \begin{tabular}{rl@{\hskip .5in}rl}
+  $G$:&Center of gravity of the bar &$\vec{v}_G$:& Velocity of bar center of gravity\\
+  $\ell_0$:& Spring unstretched length  &$\ddot{\theta}$:& Angular velocity of spring \\
+  $\delta$:& Spring deflection &$\ddot{\phi}$:& Angular velocity of bar\\
+  $k$:& Spring constant &$\ddot{\ell}_s$:& Radial acceleration of spring \\
   $h_{b}$:& Height of bar from datum \\
   $F_s$:& Force onto bar due to spring\\
+  $A_{\theta}$:& Pin reaction in $\theta$ direction\\
+  $A_{t}$:& Pin reaction in tangential direction \\
 \end{tabular}
-\end{minipage}%
-\begin{minipage}[c]{.5\textwidth}
- \center
- \begin{tabular}{rl}
- $\vec{v}_G$:& Velocity of bar center of gravity\\
- $\ddot{\theta}$:& Angular velocity of spring \\
- $\ddot{\phi}$:& Angular velocity of bar\\
- $\ddot{\ell}_s$:& Radial acceleration of spring
-\end{tabular}
-\end{minipage}
 
 % ---------------------------------------------------------------------------- %
 \section{Coordinate Frame} \label{section:coord}
@@ -303,7 +296,7 @@ Similarly, the other Equations of Motion can be found in the Appendix -- Numeric
 \end{subfigure}
 \end{figure}
 
-\begin{figure}[!htp]
+\begin{figure}[!htp] \ContinuedFloat
   \caption{Numerical Solution Motion Behavior Plots, ($\theta_o:\sfrac{\pi}{18},~\phi_o:\sfrac{\pi}{9}$)}
 \begin{subfigure}[t]{\textwidth}
   \includegraphics[center]{spring_18-9}
@@ -321,7 +314,7 @@ Similarly, the other Equations of Motion can be found in the Appendix -- Numeric
 \end{subfigure}
 \end{figure}
 
-\begin{figure}[!htp]
+\begin{figure}[!htp] \ContinuedFloat
   \caption{Numerical Solution Motion Behavior Plots, ($\theta_o:\sfrac{\pi}{6},~\phi_o:\sfrac{\pi}{3}$)}
 \begin{subfigure}[t]{\textwidth}
   \includegraphics[center]{spring_6-3}

@@ -464,10 +464,10 @@ INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/
 INPUT /usr/local/texlive/2018basic/texmf-dist/tex/latex/lm/t1lmtt.fd
 INPUT /usr/local/texlive/2018basic/texmf-dist/tex/latex/lm/t1lmtt.fd
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/lm/ec-lmtt12.tfm
-INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm
 INPUT fbd.tex
 INPUT fbd.tex
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/lm/ec-lmri12.tfm
+INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/lm/lmmi10.tfm
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
