@@ -1,13 +1,13 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Acceleration and Free Body Diagrams\relax }}{2}{figure.caption.4}
 \contentsline {subfigure}{\numberline {a}{\ignorespaces Free Body Diagram\relax }}{2}{figure.caption.4}
 \contentsline {subfigure}{\numberline {b}{\ignorespaces Acceleration Diagram\relax }}{2}{figure.caption.4}
-\contentsline {figure}{\numberline {2}{\ignorespaces Coordinate Frame\relax }}{4}{figure.caption.5}
-\contentsline {figure}{\numberline {3}{\ignorespaces Numerical Solution Motion Behavior Plot, ($\theta _o:\nobreakspace {}0,\nobreakspace {}\phi _o:\nobreakspace {}0$)\relax }}{6}{figure.caption.7}
-\contentsline {subfigure}{\numberline {a}{\ignorespaces Spring Length vs. Time\relax }}{6}{figure.caption.7}
-\contentsline {figure}{\numberline {4}{\ignorespaces Numerical Solution Motion Behavior Plots, ($\theta _o:\sfrac {\pi }{18},\nobreakspace {}\phi _o:\sfrac {\pi }{9}$)\relax }}{6}{figure.caption.8}
-\contentsline {subfigure}{\numberline {a}{\ignorespaces Spring Length vs. Time\relax }}{6}{figure.caption.8}
-\contentsline {subfigure}{\numberline {b}{\ignorespaces Angular Position vs. Time\relax }}{7}{figure.caption.9}
-\contentsline {figure}{\numberline {5}{\ignorespaces Numerical Solution Motion Behavior Plots, ($\theta _o:\sfrac {\pi }{6},\nobreakspace {}\phi _o:\sfrac {\pi }{3}$)\relax }}{7}{figure.caption.10}
-\contentsline {subfigure}{\numberline {a}{\ignorespaces Spring Length vs. Time\relax }}{7}{figure.caption.10}
-\contentsline {subfigure}{\numberline {b}{\ignorespaces Angular Position vs. Time\relax }}{7}{figure.caption.11}
-\contentsline {figure}{\numberline {6}{\ignorespaces Comparison Plots of ode45 Tolerance Options\relax }}{10}{figure.caption.12}
+\contentsline {figure}{\numberline {2}{\ignorespaces Coordinate Frame\relax }}{2}{figure.caption.5}
+\contentsline {figure}{\numberline {3}{\ignorespaces Numerical Solution Motion Behavior Plot, ($\theta _o:\nobreakspace {}0,\nobreakspace {}\phi _o:\nobreakspace {}0$)\relax }}{5}{figure.caption.6}
+\contentsline {subfigure}{\numberline {a}{\ignorespaces Spring Length vs. Time\relax }}{5}{figure.caption.6}
+\contentsline {figure}{\numberline {4}{\ignorespaces Numerical Solution Motion Behavior Plots, ($\theta _o:\sfrac {\pi }{18},\nobreakspace {}\phi _o:\sfrac {\pi }{9}$)\relax }}{5}{figure.caption.7}
+\contentsline {subfigure}{\numberline {a}{\ignorespaces Spring Length vs. Time\relax }}{5}{figure.caption.7}
+\contentsline {subfigure}{\numberline {b}{\ignorespaces Angular Position vs. Time\relax }}{6}{figure.caption.8}
+\contentsline {figure}{\numberline {5}{\ignorespaces Numerical Solution Motion Behavior Plots, ($\theta _o:\sfrac {\pi }{6},\nobreakspace {}\phi _o:\sfrac {\pi }{3}$)\relax }}{6}{figure.caption.9}
+\contentsline {subfigure}{\numberline {a}{\ignorespaces Spring Length vs. Time\relax }}{6}{figure.caption.9}
+\contentsline {subfigure}{\numberline {b}{\ignorespaces Angular Position vs. Time\relax }}{6}{figure.caption.10}
+\contentsline {figure}{\numberline {6}{\ignorespaces Comparison Plots of ode45 Tolerance Options\relax }}{9}{figure.caption.11}
