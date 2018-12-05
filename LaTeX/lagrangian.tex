@@ -103,6 +103,7 @@ We are asked to determine the following: \\
    \begin{minipage}[c]{.5\textwidth}
      \begin{subfigure}{\textwidth}
        \caption{Free Body Diagram}
+       \label{fbd}
        \center
       \input{fbd}
       \end{subfigure}
@@ -110,6 +111,7 @@ We are asked to determine the following: \\
    \begin{minipage}[c]{.5\textwidth}
      \begin{subfigure}{\textwidth}
        \caption{Acceleration Diagram}
+       \label{ad}
        \center
        \input{ad}
     \end{subfigure}
@@ -122,7 +124,7 @@ We are asked to determine the following: \\
   $\ell_0$:& Spring unstretched length \\
   $\delta$:& Spring deflection \\
   $k$:& Spring constant \\
-  $V_{bar}$:& Potential energy of bar \\
+  $h_{bar}$:& Height of bar from datum \\
 \end{tabular}
 \end{minipage}%
 \begin{minipage}[c]{.5\textwidth}
@@ -162,7 +164,40 @@ We are asked to determine the following: \\
 % ---------------------------------------------------------------------------- %
 \section{Sum of Forces}
 % ---------------------------------------------------------------------------- %
+From Figure (\ref{coord}),
+$$\vec{r}_G = \left[\ell_s\sin(\theta) + \frac{\ell_b}{2}\sin(\phi)\right]\hat{\textrm{\i}}
+ + \left[-\ell_s\cos(\theta) - \frac{\ell_b}{2}\cos(\phi)\right]\hat{\textrm{\j}}$$
 
+Taking the time derivative,
+$$\frac{d}{dt}\vec{r}_G = \dot{\vec{r}}_G = \vec{v}_G$$
+$$
+\vec{v}_G =
+\left[\dot{\ell}_s\sin(\theta) + \frac{\ell_b\dot{\phi}\cos(\phi)}{2} +
+\ell_s\dot{\theta}\cos(\theta)\right]\hat{\textrm{\i}} +
+\left[\frac{\ell_b\dot{\phi}\sin(\phi)}{2} -
+\dot{\ell}_s\cos(\theta) + \ell_s\dot{\theta}\sin(\theta)\right]\hat{\textrm{\j}}
+$$
+
+Kinetic Energy of Spring:
+$$T_1 = 0$$
+Kinetic Energy of Bar, due to it's rotational and translational velocity (Figure \ref{ad}):
+$$T_2 = \frac{1}{2}m_{b}(\vec{v}_G \cdot \vec{v}_G) + \frac{1}{2}I\omega^2$$
+Since the moment of inertia $I$ for a uniform slender bar rotating about its end is
+$\dfrac{1}{12}m\ell^2$ and $\omega = \dot{\phi}$,
+$$T_2 = \frac{1}{2}m_{b}(\vec{v}_G \cdot \vec{v}_G) + \frac{1}{24}m_{b}\ell_b^2\dot{\phi}^2$$
+Total Kinetic Energy:
+\begin{equation}
+T = T_1 + T_2 = \frac{1}{2}m_{b}(\vec{v}_G \cdot \vec{v}_G) + \frac{1}{24}m_{b}\ell_b^2\dot{\phi}^2
+\end{equation}
+
+Potential Energy of Spring due to it's stretch (Figure \ref{fbd}):
+$$V_1 = \frac{1}{2}k\big(\ell_s-\ell_0\big)^2$$
+Potential Energy of Bar, due to it's distance below the datum, $h_{bar}$ (Figure \ref{fbd}):
+$$V_2 = - m_bg\big(\ell_s\cos(\theta) + \frac{\ell_b}{2}\cos(\phi)\big)$$
+Total Potential Energy:
+\begin{equation}
+V = V_1 + V_2 = \frac{1}{2}k\big(\ell_s-\ell_0\big)^2 - m_bg\big(\ell_s\cos(\theta) + \frac{\ell_b}{2}\cos(\phi)\big)
+\end{equation}
 % ---------------------------------------------------------------------------- %
 \section{Constraints}
 % ---------------------------------------------------------------------------- %
@@ -171,45 +206,48 @@ solve the problem.
 % ---------------------------------------------------------------------------- %
 \section{Solve for the Equations of Motion}
 % ---------------------------------------------------------------------------- %
-
-From Figure (\ref{coord}),
-$$\vec{r}_G = \left[\ell_s\sin(\theta) + \frac{\ell_b}{2}\sin(\phi)\right]\hat{\textrm{\i}}
- + \left[-\ell_s\cos(\theta) - \frac{\ell_b}{2}\cos(\phi)\right]\hat{\textrm{\j}}$$
-
-Taking the time derivative,
-$$\frac{d}{dt}\vec{r}_G = \dot{\vec{r}}_G = \vec{v}_G$$
-$$\vec{v}_G =  $$
-
-
-Kinetic Energy of Spring:
-$$T_1 = 0$$
-Kinetic Energy of Bar:
-$$T_2 = \frac{1}{2}m_{b}(\vec{v}_G \cdot \vec{v}_G) + \frac{1}{2}I\omega^2$$
-Since the moment of inertia $I$ for a uniform slender bar rotating about its end is
-$\dfrac{1}{12}m\ell^2$ and $\omega = \dot{\phi}$,
-$$T_2 = \frac{1}{2}m_{b}(\vec{v}_G \cdot \vec{v}_G) + \frac{1}{24}m_{b}\ell_b^2\dot{\phi}^2$$
-Total Kinetic Energy:
-$$T = T_1 + T_2$$
-
-Potential Energy of Spring:
-$$V_1 = \frac{1}{2}k\big(\ell_s-\ell_0\big)^2$$
-Potential Energy of Bar
-$$V_2 = - m_bg\big(\ell_s\cos(\theta) + \frac{\ell_b}{2}\cos(\phi)\big)$$
-Total Potential Energy
-$$V = V_1 + V_2$$
-
 The Lagrangian $\Lag \equiv T - V$.
 The equations of motion are a linear combination of the time derivative of the partial derivative of the Lagrangian with respect to the first derivative of the motion variable with
 respect to time, minus the partial derivative of the Lagrangian with respect to the variable
  of motion. These equations are set equal to the non-conservative forces in the system,
  $(Q_j)_{\text{non}}$ which in this particular case there are none, since there are no
- non-conserved forces (such as drag, applied forces, etc).
+ non-conservative forces acting (such as drag, applied forces, etc).
 
-$$\ddot{\theta} = \frac{d}{dt}\left(\frac{\partial\Lag}{\partial\dot{\theta}}\right) -
-\frac{\partial\Lag}{\partial\theta} = \big(Q_{\theta}\big)_{\text{non}}$$
+\begin{minipage}[b]{.5\textwidth}
+\begin{equation}
+\ddot{\theta} = \frac{d}{dt}\left(\frac{\partial\Lag}{\partial\dot{\theta}}\right) -
+\frac{\partial\Lag}{\partial\theta} = \big(Q_{\theta}\big)_{\text{non}}
+\label{eq:lagtheta}
+\end{equation}
+\end{minipage}%
+\begin{minipage}[b]{.5\textwidth}
+\begin{equation}
+\ddot{\phi} = \frac{d}{dt}\left(\frac{\partial\Lag}{\partial\dot{\phi}}\right) -
+\frac{\partial\Lag}{\partial\phi} = \big(Q_{\phi}\big)_{\text{non}}
+\label{eq:lagphi}
+\end{equation}
+\end{minipage}
+\begin{equation}
+\ddot{\ell}_s = \frac{d}{dt}\left(\frac{\partial\Lag}{\partial\dot{\ell}_s}\right) -
+\frac{\partial\Lag}{\partial\ell_s} = \big(Q_{\ell_s}\big)_{\text{non}}
+\label{eq:lagspring}
+\end{equation}
 
-$$\ddot{\phi} = \frac{d}{dt}\left(\frac{\partial\Lag}{\partial\dot{\phi}}\right) -
-\frac{\partial\Lag}{\partial\phi} = \big(Q_{\phi}\big)_{\text{non}}$$
+\begin{equation}
+\begin{split}
+\Lag =
+\frac{m_b}{2}\left[
+\left(\dot{\ell}_s\sin(\theta) + \frac{\ell_b\dot{\phi}\cos(\phi)}{2} + \ell_s\dot{\theta}\cos(\theta)\right)^2 +
+\left(\frac{\ell_b\dot{\phi}\sin(\phi)}{2} - \dot{\ell}_s\cos(\theta) + \ell_s\dot{\theta}\sin(\theta)\right)^2 \right] \\
+- \frac{k(\ell_0 - \ell_s)^2}{2} + \frac{\ell_b^2m_b\dot{\phi}^2}{24} +
+gm_b\left(\frac{\ell_b\cos(\phi)}{2} + \ell_s\cos(\theta)\right)
+\label{eq:lag}
+\end{split}
+\end{equation}
+
+
+Using Equations (\ref{eq:lagtheta}), (\ref{eq:lagphi}), (\ref{eq:lagspring}) and (\ref{eq:lag}), we can
+solve for the three Equations of Motion.
 
 \newpage
 % ---------------------------------------------------------------------------- %
@@ -274,7 +312,7 @@ Checking with the MATLAB symbolic units tool (from Section \ref{appendix:numeric
 \onehalfspacing
 \begin{tabular}{ll}
 Jeffrey Chen & \\
-Thorne Wolfenbarger &\\
+Thorne Wolfenbarger & \\
 Trey Dufrene & \\
 Joint Effort &
 \end{tabular}

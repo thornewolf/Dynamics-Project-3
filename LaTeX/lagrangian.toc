@@ -4,7 +4,7 @@
 \contentsline {section}{\numberline {3}Coordinate Frame}{2}{section.0.3}
 \contentsline {section}{\numberline {4}Sum of Forces}{3}{section.0.4}
 \contentsline {section}{\numberline {5}Constraints}{3}{section.0.5}
-\contentsline {section}{\numberline {6}Solve for the Equations of Motion}{3}{section.0.6}
+\contentsline {section}{\numberline {6}Solve for the Equations of Motion}{4}{section.0.6}
 \contentsline {section}{\numberline {7}Solve the Equations of Motion}{5}{section.0.7}
 \contentsline {section}{\numberline {8}Does it Make Sense?}{5}{section.0.8}
 \contentsline {subsection}{\numberline {8.1}Units}{5}{subsection.0.8.1}
