@@ -68,12 +68,12 @@
 \subsection{Constants and Assumptions}
 \begin{tabular}{ll@{\hskip .75in}l}
  \multicolumn{1}{c}{Constants:} && \multicolumn{1}{c}{Assumptions:} \\
- Bar Mass: &$m$ = 1 kg & No Losses\\
- Bar Length: &$L$ = 1 m & Released from Rest\\
- Gravity: &$g$ = 9.81$\sfrac{m}{s^2}$ &Uniform Slender Bar \\
+ Bar Mass: &$m_b$ = 1 kg & No Losses\\
+ Bar Length: &$\ell_b$ = 1 m & Released from Rest\\
+ Gravity: &$g$ = 9.81 $\sfrac{\text{m}}{\text{s$^2$}}$ &Uniform Slender Bar \\
  Linear Spring: &&Planar\\
- \quad Spring Coefficient:& $k = 25~\sfrac{N}{m}$ &Rigid-Body Dynamics \\
- \quad Unstretched Length:& $L$ = 0.5 m \\
+ \quad Spring Coefficient:& $k = 25~\sfrac{\text{N}}{\text{m}}$ &Rigid-Body Dynamics \\
+ \quad Unstretched Length:& $\ell_0$ = 0.5 m \\
 \end{tabular}
 \vspace{5ex}
 
@@ -124,7 +124,8 @@ We are asked to determine the following: \\
   $\ell_0$:& Spring unstretched length \\
   $\delta$:& Spring deflection \\
   $k$:& Spring constant \\
-  $h_{bar}$:& Height of bar from datum \\
+  $h_{b}$:& Height of bar from datum \\
+  $F_s$:& Force onto bar due to spring\\
 \end{tabular}
 \end{minipage}%
 \begin{minipage}[c]{.5\textwidth}
@@ -133,7 +134,7 @@ We are asked to determine the following: \\
  $\vec{v}_G$:& Velocity of bar center of gravity\\
  $\ddot{\theta}$:& Angular velocity of spring \\
  $\ddot{\phi}$:& Angular velocity of bar\\
- $\ddot{\ell}_s$:& Radial acceleration of bar\\ & due to spring
+ $\ddot{\ell}_s$:& Radial acceleration of spring
 \end{tabular}
 \end{minipage}
 
@@ -154,7 +155,7 @@ We are asked to determine the following: \\
       & \quad Motion Variables: \\
       $\theta$:& Angle of spring relative to vertical\\
       $\phi$:& Angle of bar relative to vertical\\
-      $r$:& Radial length of spring \\
+      $\ell_s$:& Radial length of spring \\
       \\
       & \quad Supplemental Variables: \\
       $\vec{r}_G$:& Vector to bar center of mass from origin \\
@@ -198,6 +199,27 @@ Total Potential Energy:
 \begin{equation}
 V = V_1 + V_2 = \frac{1}{2}k\big(\ell_s-\ell_0\big)^2 - m_bg\big(\ell_s\cos(\theta) + \frac{\ell_b}{2}\cos(\phi)\big)
 \end{equation}
+\newpage
+% ---------------------------------------------------------------------------- %
+\section{Knowns and Unknowns} \label{knownsandunknowns}
+% ---------------------------------------------------------------------------- %
+\begin{tabular}{ll@{\hskip .75in}ll}
+  \multicolumn{1}{c}{Knowns:} && \multicolumn{1}{c}{Unknowns:} \\
+  Bar Mass: &$m_b$ = 0.25 kg & Accelerations: & $\ddot{\theta},~\ddot{\phi},~\ddot{\ell}_s$ \\
+  Bar Length: &$\ell_b$ = 1 m & \\
+  Gravity: &$g$ = 9.81 $\sfrac{\text{m}}{\text{s$^2$}}$& \\
+  Linear Spring: \\
+  \quad Spring Coefficient:& $k = 25~\sfrac{\text{N}}{\text{m}}$\\
+  \quad Unstretched Length:& $\ell_0$ = 0.5 m \\
+  State Variables: \\
+  \quad Angular \& Radial Position: &$\theta,~\phi,\ell_s$ \\
+  \quad Angular \& Radial Velocity: &$\dot{\theta},~\dot{\phi},~\dot{\ell}_s$ & \\
+\end{tabular}
+\vspace{2ex}
+
+Since there are six equations and six unknowns, we can solve for the equations of
+motion analytically using Matlab.
+
 % ---------------------------------------------------------------------------- %
 \section{Constraints}
 % ---------------------------------------------------------------------------- %
@@ -247,7 +269,26 @@ gm_b\left(\frac{\ell_b\cos(\phi)}{2} + \ell_s\cos(\theta)\right)
 
 
 Using Equations (\ref{eq:lagtheta}), (\ref{eq:lagphi}), (\ref{eq:lagspring}) and (\ref{eq:lag}), we can
-solve for the three Equations of Motion.
+solve for the three Equations of Motion with Matlab.
+
+\begin{lstlisting}[frame=lines,style=Matlab-editor,basicstyle = \mlttfamily]
+Lagrangian = T - V;
+
+% Partial of Lagrange Eq. w.r.t. thetadot
+dLdthetadot = diff(Lagrangian,thetadot);
+dLdthetadot_subbed = subs(dLdthetadot, [thetat, thetadot, phit, phidot, l1t, l1dot],...
+    [theta, diff(theta,t), phi, diff(phi,t), l1, diff(l1,t)]);
+% Time derivative of Partial of Lagrange Eq. w.r.t. thetadot
+ddLdthetadotdt = diff(dLdthetadot_subbed,t);
+% Partial of Lagrange Eq. w.r.t. theta
+dLdtheta = diff(Lagrangian,thetat);
+
+% Theta EOM
+eqn(1) = ddLdthetadotdt - dLdtheta == 0;
+\end{lstlisting}
+Similarly, the other Equations of Motion can be found in the Appendix -- Numerical Solution.
+
+
 
 \newpage
 % ---------------------------------------------------------------------------- %

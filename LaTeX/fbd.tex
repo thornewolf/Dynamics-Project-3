@@ -23,7 +23,7 @@
   % \draw[->] (.85,0) -- ++(270+\myAngle:2.65) coordinate (r);
   % \draw ($(.85,0) + (270+\myAngle:2.75/2)$) node[label=0:$r$] {};
   % \draw ($(.25,0) + (270+\myAngle:2.75/1.5)$) node[label=$k$] {};
-  \path (centro) -- node[label={[label distance = 2ex]below:$k$}] (k) {} (spring2);
+  \path (centro) -- node[label={[yshift=-3ex,xshift=1.5ex]180:$k$}] (k) {} (spring2);
 
   \draw [gray,dashed] (-1,0) -- node[above,near end] (datum) {\textit{datum}} (2.5,0);
   \draw[dashed,gray,-] (springs2) -- ++ (0,-2) node (vert2) [black,below] {};
@@ -41,7 +41,9 @@
   % \end{scope}
 
   \draw [decorate,decoration={brace,amplitude=2pt,raise=4pt,mirror}] (g) --
-    node [xshift=4ex] {$h_{bar}$} (gdatum);
+    node [xshift=4ex] {$h_{b}$} (gdatum);
+
+    \draw [thick,->] (springs2) -- node[left] {\small $F_s$} (springs);
 
   \draw (g) node[label={[label distance = -1ex]225:$G$}] {};
 

@@ -3,13 +3,14 @@
 \contentsline {section}{\numberline {2}Free Body Diagram}{2}{section.0.2}
 \contentsline {section}{\numberline {3}Coordinate Frame}{2}{section.0.3}
 \contentsline {section}{\numberline {4}Sum of Forces}{3}{section.0.4}
-\contentsline {section}{\numberline {5}Constraints}{3}{section.0.5}
-\contentsline {section}{\numberline {6}Solve for the Equations of Motion}{4}{section.0.6}
-\contentsline {section}{\numberline {7}Solve the Equations of Motion}{5}{section.0.7}
-\contentsline {section}{\numberline {8}Does it Make Sense?}{5}{section.0.8}
-\contentsline {subsection}{\numberline {8.1}Units}{5}{subsection.0.8.1}
-\contentsline {subsection}{\numberline {8.2}Magnitude}{7}{subsection.0.8.2}
-\contentsline {section}{\numberline {9}Appendix}{7}{section.0.9}
-\contentsline {subsection}{\numberline {9.1}Attributions}{7}{subsection.0.9.1}
-\contentsline {subsection}{\numberline {9.2}Analytical Solution}{8}{subsection.0.9.2}
-\contentsline {subsection}{\numberline {9.3}Numerical Solution}{9}{subsection.0.9.3}
+\contentsline {section}{\numberline {5}Knowns and Unknowns}{4}{section.0.5}
+\contentsline {section}{\numberline {6}Constraints}{4}{section.0.6}
+\contentsline {section}{\numberline {7}Solve for the Equations of Motion}{4}{section.0.7}
+\contentsline {section}{\numberline {8}Solve the Equations of Motion}{6}{section.0.8}
+\contentsline {section}{\numberline {9}Does it Make Sense?}{6}{section.0.9}
+\contentsline {subsection}{\numberline {9.1}Units}{6}{subsection.0.9.1}
+\contentsline {subsection}{\numberline {9.2}Magnitude}{8}{subsection.0.9.2}
+\contentsline {section}{\numberline {10}Appendix}{8}{section.0.10}
+\contentsline {subsection}{\numberline {10.1}Attributions}{8}{subsection.0.10.1}
+\contentsline {subsection}{\numberline {10.2}Analytical Solution}{9}{subsection.0.10.2}
+\contentsline {subsection}{\numberline {10.3}Numerical Solution}{10}{subsection.0.10.3}
