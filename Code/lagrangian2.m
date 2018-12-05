@@ -127,117 +127,119 @@ v_g = subs(v_g, [theta, diff(theta,t), phi, diff(phi,t), l1, diff(l1,t)],...
                 [thetat, thetadot, phit, phidot, l1t, l1dot]);
 v_g = v_g(1);
 SM = [S1, S2, S3, S4, S5, S6];
-% T = T1;
-% S = S1;
-% energy_vector1 = zeros(length(S));
-% for i = 1:length(S)
-%     if mod(i,100)==0
-%         i
-%     end
-%     v_g_subbed = eval(subs(v_g, [thetat, thetadot, phit, phidot, l1t, l1dot],...
-%         [S(i,1), S(i,2), S(i,3), S(i,4), S(i,5), S(i,6)]));
-%     v_g_squared = v_g_subbed(1)*v_g_subbed(1)+v_g_subbed(2)*v_g_subbed(2);
-%     integration_Kinetic_Energy = 1/2*c.m2*v_g_squared + 1/24*c.m2*c.l2^2*S(i,4)^2;
-%     integration_Potential_Energy = 1/2*c.k*(S(i,5)-c.L0)^2 - c.m2*c.g*(S(i,5)*cos(S(i,1))+c.l2/2*cos(S(i,3)));
-%     total_Energy = integration_Kinetic_Energy + integration_Potential_Energy;
-%     energy_vector1(i) = total_Energy;
-% end
-% energy_vector1 = energy_vector1(:,1);
-% 
-% T = T2;
-% S = S2;
-% energy_vector2 = zeros(length(S));
-% for i = 1:length(S)
-%     if mod(i,100)==0
-%         i
-%     end
-%     v_g_subbed = eval(subs(v_g, [thetat, thetadot, phit, phidot, l1t, l1dot],...
-%         [S(i,1), S(i,2), S(i,3), S(i,4), S(i,5), S(i,6)]));
-%     v_g_squared = v_g_subbed(1)*v_g_subbed(1)+v_g_subbed(2)*v_g_subbed(2);
-%     integration_Kinetic_Energy = 1/2*c.m2*v_g_squared + 1/24*c.m2*c.l2^2*S(i,4)^2;
-%     integration_Potential_Energy = 1/2*c.k*(S(i,5)-c.L0)^2 - c.m2*c.g*(S(i,5)*cos(S(i,1))+c.l2/2*cos(S(i,3)));
-%     total_Energy = integration_Kinetic_Energy + integration_Potential_Energy;
-%     energy_vector2(i) = total_Energy;
-% end
-% energy_vector2 = energy_vector2(:,1);
-% 
-% 
-% figure(1)
-% hold on
-% 
-% grid on
-% 
-% 
-% [min(energy_vector1), max(energy_vector1)]
-% ylim([min(energy_vector1), max(energy_vector1)])
-% plot(T,energy_vector1,'DisplayName', 'Default Tol')
-% plot(T,energy_vector2,'DisplayName', 'Increased Tol')
-% legend('show','Location','northoutside')
-% xlabel('Time, sec')
-% ylabel('Total Energy, J')
-% set(gcf, 'PaperPositionMode', 'manual');
-% set(gcf, 'PaperUnits', 'inches');
-% set(gcf, 'PaperPosition', [1 1 6 2.5]);
-% print('-f1','Energy1','-dpdf');
-% 
-% hold off
-% 
-% T = T3;
-% S = S3;
-% energy_vector3 = zeros(length(S));
-% for i = 1:length(S)
-%     if mod(i,100)==0
-%         i
-%     end
-%     v_g_subbed = eval(subs(v_g, [thetat, thetadot, phit, phidot, l1t, l1dot, l2],...
-%         [S(i,1), S(i,2), S(i,3), S(i,4), S(i,5), S(i,6), c.l2]));
-%     v_g_squared = v_g_subbed(1)*v_g_subbed(1)+v_g_subbed(2)*v_g_subbed(2);
-%     integration_Kinetic_Energy = 1/2*c.m2*v_g_squared + 1/24*c.m2*c.l2^2*S(i,4)^2;
-%     integration_Potential_Energy = 1/2*c.k*(S(i,5)-c.L0)^2 - c.m2*c.g*(S(i,5)*cos(S(i,1))+c.l2/2*cos(S(i,3)));
-%     total_Energy = integration_Kinetic_Energy + integration_Potential_Energy;
-%     energy_vector3(i) = total_Energy;
-% end
-% energy_vector3 = energy_vector3(:,1);
-% 
-% T = T4;
-% S = S4;
-% energy_vector4 = zeros(length(S));
-% for i = 1:length(S)
-%     if mod(i,100)==0
-%         i
-%     end
-%     v_g_subbed = eval(subs(v_g, [thetat, thetadot, phit, phidot, l1t, l1dot, l2],...
-%         [S(i,1), S(i,2), S(i,3), S(i,4), S(i,5), S(i,6), c.l2]));
-%     v_g_squared = v_g_subbed(1)*v_g_subbed(1)+v_g_subbed(2)*v_g_subbed(2);
-%     integration_Kinetic_Energy = 1/2*c.m2*v_g_squared + 1/24*c.m2*c.l2^2*S(i,4)^2;
-%     integration_Potential_Energy = 1/2*c.k*(S(i,5)-c.L0)^2 - c.m2*c.g*(S(i,5)*cos(S(i,1))+c.l2/2*cos(S(i,3)));
-%     total_Energy = integration_Kinetic_Energy + integration_Potential_Energy;
-%     energy_vector4(i) = total_Energy;
-% end
-% energy_vector4 = energy_vector4(:,1);
-% 
-% 
-% figure(2)
-% hold on
-% 
-% grid on
-% 
-% 
-% [min(energy_vector3), max(energy_vector3)]
-% ylim([min(energy_vector3), max(energy_vector3)])
-% plot(T,energy_vector3,'DisplayName', 'Default Tol')
-% plot(T,energy_vector4,'DisplayName', 'Increased Tol')
-% legend('show','Location','northoutside')
-% xlabel('Time, sec')
-% ylabel('Total Energy, J')
-% set(gcf, 'PaperPositionMode', 'manual');
-% set(gcf, 'PaperUnits', 'inches');
-% set(gcf, 'PaperPosition', [1 1 6 2.5]);
-% print('-f2','Energy2','-dpdf');
-% 
-% hold off
-% 
-% %-------------------------------------------------------------------------%
+T = T1;
+S = S1;
+energy_vector1 = zeros(length(S));
+for i = 1:length(S)
+    if mod(i,100)==0
+        i
+    end
+    v_g_subbed = eval(subs(v_g, [thetat, thetadot, phit, phidot, l1t, l1dot],...
+        [S(i,1), S(i,2), S(i,3), S(i,4), S(i,5), S(i,6)]));
+    v_g_squared = v_g_subbed(1)*v_g_subbed(1)+v_g_subbed(2)*v_g_subbed(2);
+    integration_Kinetic_Energy = 1/2*c.m2*v_g_squared + 1/24*c.m2*c.l2^2*S(i,4)^2;
+    integration_Potential_Energy = 1/2*c.k*(S(i,5)-c.L0)^2 - c.m2*c.g*(S(i,5)*cos(S(i,1))+c.l2/2*cos(S(i,3)));
+    total_Energy = integration_Kinetic_Energy + integration_Potential_Energy;
+    energy_vector1(i) = total_Energy;
+end
+energy_vector1 = energy_vector1(:,1);
+
+T = T2;
+S = S2;
+energy_vector2 = zeros(length(S));
+for i = 1:length(S)
+    if mod(i,100)==0
+        i
+    end
+    v_g_subbed = eval(subs(v_g, [thetat, thetadot, phit, phidot, l1t, l1dot],...
+        [S(i,1), S(i,2), S(i,3), S(i,4), S(i,5), S(i,6)]));
+    v_g_squared = v_g_subbed(1)*v_g_subbed(1)+v_g_subbed(2)*v_g_subbed(2);
+    integration_Kinetic_Energy = 1/2*c.m2*v_g_squared + 1/24*c.m2*c.l2^2*S(i,4)^2;
+    integration_Potential_Energy = 1/2*c.k*(S(i,5)-c.L0)^2 - c.m2*c.g*(S(i,5)*cos(S(i,1))+c.l2/2*cos(S(i,3)));
+    total_Energy = integration_Kinetic_Energy + integration_Potential_Energy;
+    energy_vector2(i) = total_Energy;
+end
+energy_vector2 = energy_vector2(:,1);
+
+
+figure(1)
+hold on
+
+grid on
+
+(max(energy_vector1)-max(energy_vector2))/max(energy_vector2)*100
+
+[min(energy_vector1), max(energy_vector1)]
+ylim([min(energy_vector1), max(energy_vector1)])
+plot(T,energy_vector1,'DisplayName', 'Default Tol')
+plot(T,energy_vector2,'DisplayName', 'Increased Tol')
+legend('show','Location','northoutside')
+xlabel('Time, sec')
+ylabel('Total Energy, J')
+set(gcf, 'PaperPositionMode', 'manual');
+set(gcf, 'PaperUnits', 'inches');
+set(gcf, 'PaperPosition', [1 1 6 2.5]);
+print('-f1','Energy1','-dpdf');
+
+hold off
+
+T = T3;
+S = S3;
+energy_vector3 = zeros(length(S));
+for i = 1:length(S)
+    if mod(i,100)==0
+        i
+    end
+    v_g_subbed = eval(subs(v_g, [thetat, thetadot, phit, phidot, l1t, l1dot, l2],...
+        [S(i,1), S(i,2), S(i,3), S(i,4), S(i,5), S(i,6), c.l2]));
+    v_g_squared = v_g_subbed(1)*v_g_subbed(1)+v_g_subbed(2)*v_g_subbed(2);
+    integration_Kinetic_Energy = 1/2*c.m2*v_g_squared + 1/24*c.m2*c.l2^2*S(i,4)^2;
+    integration_Potential_Energy = 1/2*c.k*(S(i,5)-c.L0)^2 - c.m2*c.g*(S(i,5)*cos(S(i,1))+c.l2/2*cos(S(i,3)));
+    total_Energy = integration_Kinetic_Energy + integration_Potential_Energy;
+    energy_vector3(i) = total_Energy;
+end
+energy_vector3 = energy_vector3(:,1);
+
+T = T4;
+S = S4;
+energy_vector4 = zeros(length(S));
+for i = 1:length(S)
+    if mod(i,100)==0
+        i
+    end
+    v_g_subbed = eval(subs(v_g, [thetat, thetadot, phit, phidot, l1t, l1dot, l2],...
+        [S(i,1), S(i,2), S(i,3), S(i,4), S(i,5), S(i,6), c.l2]));
+    v_g_squared = v_g_subbed(1)*v_g_subbed(1)+v_g_subbed(2)*v_g_subbed(2);
+    integration_Kinetic_Energy = 1/2*c.m2*v_g_squared + 1/24*c.m2*c.l2^2*S(i,4)^2;
+    integration_Potential_Energy = 1/2*c.k*(S(i,5)-c.L0)^2 - c.m2*c.g*(S(i,5)*cos(S(i,1))+c.l2/2*cos(S(i,3)));
+    total_Energy = integration_Kinetic_Energy + integration_Potential_Energy;
+    energy_vector4(i) = total_Energy;
+end
+energy_vector4 = energy_vector4(:,1);
+
+
+figure(2)
+hold on
+
+grid on
+
+(max(energy_vector3)-max(energy_vector4))/max(energy_vector4)*100
+
+[min(energy_vector3), max(energy_vector3)]
+ylim([min(energy_vector3), max(energy_vector3)])
+plot(T,energy_vector3,'DisplayName', 'Default Tol')
+plot(T,energy_vector4,'DisplayName', 'Increased Tol')
+legend('show','Location','northoutside')
+xlabel('Time, sec')
+ylabel('Total Energy, J')
+set(gcf, 'PaperPositionMode', 'manual');
+set(gcf, 'PaperUnits', 'inches');
+set(gcf, 'PaperPosition', [1 1 6 2.5]);
+print('-f2','Energy2','-dpdf');
+
+hold off
+
+%-------------------------------------------------------------------------%
 
 T = T5;
 S = S5;
@@ -279,6 +281,7 @@ hold on
 
 grid on
 
+(max(energy_vector5)-max(energy_vector6))/max(energy_vector6)*100
 
 [min(energy_vector5), max(energy_vector5)]
 ylim([min(energy_vector5), max(energy_vector5)])
@@ -290,7 +293,7 @@ ylabel('Total Energy, J')
 set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperUnits', 'inches');
 set(gcf, 'PaperPosition', [1 1 6 2.5]);
-print('-f2','Energy3','-dpdf');
+print('-f3','Energy3','-dpdf');
 
 hold off
 
