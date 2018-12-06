@@ -491,8 +491,6 @@ INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT images/spring_0-0.pdf
 INPUT ./images/spring_0-0.pdf
 INPUT ./images/spring_0-0.pdf
-INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/vf/public/bera/fvmr8t.vf
-INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/bera/fvmr8r.tfm
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/boondox/BOONDOX-r-cal.tfm
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/boondox/BOONDOX-r-cal.tfm
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/boondox/BOONDOX-r-cal.tfm
@@ -508,6 +506,8 @@ INPUT ./images/spring_18-9.pdf
 INPUT images/angles_18-9.pdf
 INPUT ./images/angles_18-9.pdf
 INPUT ./images/angles_18-9.pdf
+INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/vf/public/bera/fvmr8t.vf
+INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/bera/fvmr8r.tfm
 INPUT images/spring_6-3.pdf
 INPUT ./images/spring_6-3.pdf
 INPUT ./images/spring_6-3.pdf
@@ -551,6 +551,9 @@ INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/lm/ts1-lmtt12.tfm
 INPUT images/analytical.pdf
 INPUT ./images/analytical.pdf
 INPUT ./images/analytical.pdf
+INPUT images/analytical.pdf
+INPUT ./images/analytical.pdf
+INPUT ./images/analytical.pdf
 INPUT images/1.pdf
 INPUT ./images/1.pdf
 INPUT ./images/1.pdf
@@ -566,6 +569,12 @@ INPUT ./images/3.pdf
 INPUT images/5.pdf
 INPUT ./images/5.pdf
 INPUT ./images/5.pdf
+INPUT matlab.tex
+INPUT matlab.tex
+INPUT /usr/local/texlive/2018basic/texmf-dist/tex/latex/bera/ts1fvm.fd
+INPUT /usr/local/texlive/2018basic/texmf-dist/tex/latex/bera/ts1fvm.fd
+INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/bera/fvmr8c.tfm
+INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/vf/public/bera/fvmr8c.vf
 INPUT lagrangian.aux
 INPUT ./lagrangian.out
 INPUT ./lagrangian.out

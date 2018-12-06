@@ -212,8 +212,8 @@ V = V_1 + V_2 = \frac{1}{2}k\big(\ell_s-\ell_0\big)^2 - m_bg\big(\ell_s\cos(\the
 \end{tabular}
 \vspace{2ex}
 
-Since there are six equations and six unknowns, we can solve for the equations of
-motion analytically using Matlab.
+Since there are three equations and three unknowns, we can solve for the equations of
+motion analytically using the Lagrangian method with Matlab.
 
 % ---------------------------------------------------------------------------- %
 \section{Constraints}
@@ -269,16 +269,14 @@ for $\ddot{\theta}$ is shown below.
 
 \begin{lstlisting}[frame=lines,style=Matlab-editor,basicstyle = \mlttfamily]
 Lagrangian = T - V;
-
 % Partial of Lagrange Eq. w.r.t. thetadot
 dLdthetadot = diff(Lagrangian,thetadot);
-dLdthetadot_subbed = subs(dLdthetadot, [thetat, thetadot, phit, phidot, l1t, l1dot],...
-    [theta, diff(theta,t), phi, diff(phi,t), l1, diff(l1,t)]);
+dLdthetadot_subbed = subs(dLdthetadot, [thetat, thetadot, phit, phidot,...
+   l1t, l1dot], [theta, diff(theta,t), phi, diff(phi,t), l1, diff(l1,t)]);
 % Time derivative of Partial of Lagrange Eq. w.r.t. thetadot
 ddLdthetadotdt = diff(dLdthetadot_subbed,t);
 % Partial of Lagrange Eq. w.r.t. theta
 dLdtheta = diff(Lagrangian,thetat);
-
 % Theta EOM
 eqn(1) = ddLdthetadotdt - dLdtheta == 0;
 \end{lstlisting}
@@ -286,10 +284,7 @@ Similarly, the procedure used to solve for the other Equations of Motion ($\ddot
 % ---------------------------------------------------------------------------- %
 \section{Solve the Equations of Motion} \label{section:solve}
 % ---------------------------------------------------------------------------- %
-After solving for each respective EOM, we can plot the solution and depict
-the behavior of the system for 10 seconds. The behavior being that of the radial distance
-that the spring stretches as well as the spring's angular deflection from vertical. The linear deflection from the stretch of the spring is plotted on it's own figure, and the angular deflection of the spring and bar from vertical are each plotted on one figure
-for each set of initial conditions.
+After solving for each respective EOM, we can plot the solution and depict the behavior of the system for 10 seconds. The radial distance that the spring stretches, the spring’s angular deflection from the vertical, and the angular deflection of the bar from the vertical make up the system’s behavior. The linear deflection caused by the spring stretching is plotted on its own figure, and the angular deflection of the spring and bar from the vertical are each plotted on one figure for each set of initial conditions.
 \begin{figure}[!htp]
   \caption{Numerical Solution Motion Behavior Plot, ($\theta_o:~0,~\phi_o:~0$)}
   \begin{subfigure}[t]{\textwidth}
@@ -331,8 +326,10 @@ of oscillation in the spring deflection are larger relative to that of this situ
 inital conditions in the case of Figure (\ref{fig:spring:6-3}) are of a greater
 angular deflection. Given that the inital release angle
 of the spring and bar are small (less than 45$^o$), the overall inital potential energy of the
-system is lower, subsequently confirming the forementioned idea that there is less overall energy in the system,
-as represented by the generally smaller amplitude in oscillations.
+system is lower, subsequently confirming the forementioned idea that there is less overall
+energy in the system, as represented by the generally smaller amplitude in oscillations. \\
+\newpage
+
 \begin{figure}[!ht]
 \caption{Numerical Solution Motion Behavior Plot, ($\theta_o:~\sfrac{\pi}{6},~\phi_o:~\sfrac{\pi}{3}$)}
 \begin{subfigure}[t]{\textwidth}
@@ -340,9 +337,6 @@ as represented by the generally smaller amplitude in oscillations.
   \caption{Spring Length vs. Time}
   \label{fig:spring:6-3}
 \end{subfigure}
-\end{figure}
-\begin{figure}[!ht] \ContinuedFloat
-  \phantomcaption
 \begin{subfigure}[t]{\textwidth}
   \includegraphics[center]{angles_6-3}
   \caption{Angular Position vs. Time}
@@ -362,33 +356,32 @@ to almost 1.5 meters in Figure (\ref{fig:spring:6-3}).
 \newpage
 
 \begin{figure}[!htp]
+  \center
   \caption{Total Energy Comparison Plots}
 \begin{subfigure}[t]{\textwidth}
-  \includegraphics[center]{Energy1}
+  \includegraphics[center,width=.9\textwidth]{Energy1}
   \caption{Total Energy in the System ($\theta_o:0,~\phi_o:0$)}
   \label{fig:Energy1}
 \end{subfigure}
-\end{figure}
-\null
-\begin{figure}[!ht] \ContinuedFloat
-  \phantomcaption
+% \end{figure}
+% \null
+% \begin{figure}[!ht] \ContinuedFloat
+%   \phantomcaption
 \begin{subfigure}[t]{\textwidth}
-  \includegraphics[center]{Energy2}
+  \includegraphics[center,width=.9\textwidth]{Energy2}
   \caption{Total Energy in the System ($\theta_o:~\sfrac{\pi}{18},~\phi_o:~\sfrac{\pi}{9}$)}
   \label{fig:Energy2}
 \end{subfigure}
-\end{figure}
-
-\begin{figure}[!ht] \ContinuedFloat
-  \phantomcaption
+% \end{figure}
+% \begin{figure}[!ht] \ContinuedFloat
+%   \phantomcaption
 \begin{subfigure}[t]{\textwidth}
-  \includegraphics[center]{Energy3}
+  \includegraphics[center,width=.9\textwidth]{Energy3}
   \caption{Total Energy in the System ($\theta_o:~\sfrac{\pi}{6},~\phi_o:~\sfrac{\pi}{3}$)}
   \label{fig:Energy3}
 \end{subfigure}
 \end{figure}
-\newpage
-\flushleft
+
 Running the |ode45| function with a relative tolerance of
 $1*10^{-6}$ and an absolute
 tolerance of $1*10^{-9}$ we produce a total energy graph that strays significantly
@@ -396,7 +389,7 @@ less than the default |ode45| implementation. The max percentage difference betw
 the high and low tolerance integrations in Figure (\ref{fig:Energy1}) is -0.0245\%.
 The max percentage difference in Figure (\ref{fig:Energy2}) is
 -0.0538\%. The max percentage difference in Figure (\ref{fig:Energy3}) is
--0.2116\%.
+-0.2116\%. Figures comparing the deflection angle and spring length in both the low and high tolerance integrations are inculded in the appendix.
 
 % ---------------------------------------------------------------------------- %
 \newpage
@@ -412,13 +405,21 @@ Examining the figures we can see that the magnitude of spring length never excee
 (\ref{fig:Energy1}), (\ref{fig:Energy2}), and (\ref{fig:Energy3}) all indicate that the total energy within the system remains essentially constant. There is a minor drift in the total energy on the magnitude of $10^{-3}J$ due to the loose tolerances in the |ode45| integration function. With the more highly toleranced integrations the energy drift is on the magnitude of $10^{-6}$. This low change in energy relative to the total energy of the system indicates that the conservation of energy principle holds true in our system that lacks non-conservative forces.
 
 \section{Appendix} \label{appendix}
+\subsection{Attributions}
+\onehalfspacing
+\begin{tabular}{ll}
+Jeffrey Chen & \\
+Thorne Wolfenbarger & Numerical \& Analytical Solution, Energy Plots, \LaTeX \\
+Trey Dufrene & Analytical Solution, Behavioral Plots, FBD \& AD, \LaTeX\\
+Joint Effort & Write-up, MATLAB
+\end{tabular}
+\singlespacing
 \subsection{Analytical Solution}
 \center
-\includegraphics[center,page=1]{analytical}
+\includegraphics[width=.85\textwidth,height=.7\textheight,center,page=1]{analytical}
 \newpage
+\includegraphics[page=2,width=.99\textwidth,center]{analytical}
 \subsection{Numerical Solution} \label{appendix:numerical}
-% \input{matlab}
-% TODO: Add scan of Thorne's work? TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 \begin{figure}[!htp]
   \caption{Comparison Plots of ode45 Tolerance Options}
   \begin{subfigure}{\textwidth}
@@ -429,6 +430,8 @@ Examining the figures we can see that the magnitude of spring length never excee
     \includegraphics[center]{2}
     \caption*{Spring Deflection, ($\theta_o:\sfrac{\pi}{18},~\phi_o:\sfrac{\pi}{9}$)}
   \end{subfigure}
+\end{figure}
+\begin{figure}[!htp] \ContinuedFloat
   \begin{subfigure}{\textwidth}
     \includegraphics[center]{4}
     \caption*{Spring Deflection, ($\theta_o:\sfrac{\pi}{6},~\phi_o:\sfrac{\pi}{3}$)}
@@ -444,7 +447,8 @@ Examining the figures we can see that the magnitude of spring length never excee
     \caption*{Bar and Spring Angular Deflection, ($\theta_o:\sfrac{\pi}{6},~\phi_o:\sfrac{\pi}{3}$)}
   \end{subfigure}
 \end{figure}
+\newpage
 
-
+\input{matlab}
 \end{flushleft}
 \end{document}
