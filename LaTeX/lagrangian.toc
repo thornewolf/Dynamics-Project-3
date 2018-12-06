@@ -13,6 +13,6 @@
 \contentsline {section}{\numberline {10}Appendix}{10}{section.0.10}
 \contentsline {subsection}{\numberline {10.1}Attributions}{10}{subsection.0.10.1}
 \contentsline {subsection}{\numberline {10.2}Analytical Solution}{10}{subsection.0.10.2}
-\contentsline {subsection}{\numberline {10.3}Numerical Solution}{11}{subsection.0.10.3}
-\contentsline {subsection}{\numberline {10.4}Main \& Behavioral Plots Code}{13}{subsection.0.10.4}
-\contentsline {subsection}{\numberline {10.5}Energy Plots Code}{19}{subsection.0.10.5}
+\contentsline {subsection}{\numberline {10.3}Numerical Solution}{12}{subsection.0.10.3}
+\contentsline {subsection}{\numberline {10.4}Main \& Behavioral Plots Code}{14}{subsection.0.10.4}
+\contentsline {subsection}{\numberline {10.5}Energy Plots Code}{20}{subsection.0.10.5}
