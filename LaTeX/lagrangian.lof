@@ -1,19 +1,7 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Acceleration and Free Body Diagrams\relax }}{2}{figure.caption.4}
-\contentsline {subfigure}{\numberline {a}{\ignorespaces Free Body Diagram\relax }}{2}{figure.caption.4}
-\contentsline {subfigure}{\numberline {b}{\ignorespaces Acceleration Diagram\relax }}{2}{figure.caption.4}
-\contentsline {figure}{\numberline {2}{\ignorespaces Coordinate Frame\relax }}{3}{figure.caption.5}
-\contentsline {figure}{\numberline {3}{\ignorespaces Numerical Solution Motion Behavior Plot, ($\theta _o:\nobreakspace {}0,\nobreakspace {}\phi _o:\nobreakspace {}0$)\relax }}{6}{figure.caption.6}
-\contentsline {subfigure}{\numberline {a}{\ignorespaces Spring Length vs. Time\relax }}{6}{figure.caption.6}
-\contentsline {figure}{\numberline {3}{\ignorespaces Numerical Solution Motion Behavior Plots, ($\theta _o:\sfrac {\pi }{18},\nobreakspace {}\phi _o:\sfrac {\pi }{9}$)\relax }}{6}{figure.caption.7}
-\contentsline {subfigure}{\numberline {b}{\ignorespaces Spring Length vs. Time\relax }}{6}{figure.caption.7}
-\contentsline {subfigure}{\numberline {c}{\ignorespaces Angular Position vs. Time\relax }}{7}{figure.caption.8}
-\contentsline {figure}{\numberline {3}{\ignorespaces Numerical Solution Motion Behavior Plots, ($\theta _o:\sfrac {\pi }{6},\nobreakspace {}\phi _o:\sfrac {\pi }{3}$)\relax }}{7}{figure.caption.9}
-\contentsline {subfigure}{\numberline {d}{\ignorespaces Spring Length vs. Time\relax }}{7}{figure.caption.9}
-\contentsline {subfigure}{\numberline {e}{\ignorespaces Angular Position vs. Time\relax }}{7}{figure.caption.10}
-<<<<<<< HEAD
-\contentsline {figure}{\numberline {4}{\ignorespaces Comparison Plots of ode45 Tolerance Options\relax }}{10}{figure.caption.11}
-=======
-\contentsline {subfigure}{\numberline {f}{\ignorespaces Total Energy in the System ($\theta _o:0,\nobreakspace {}\phi _o:0$)\relax }}{8}{figure.caption.11}
-\contentsline {subfigure}{\numberline {g}{\ignorespaces Total Energy in the System ($\theta _o:0,\nobreakspace {}\phi _o:0$)\relax }}{8}{figure.caption.12}
-\contentsline {figure}{\numberline {4}{\ignorespaces Comparison Plots of ode45 Tolerance Options\relax }}{11}{figure.caption.13}
->>>>>>> c929cb24be0c90e72f24a5e2e38061189fcbf285
+\contentsline {figure}{\numberline {2}{\ignorespaces Coordinate Frame\relax }}{2}{figure.caption.5}
+\contentsline {figure}{\numberline {3}{\ignorespaces Numerical Solution Motion Behavior Plot, ($\theta _o:\nobreakspace {}0,\nobreakspace {}\phi _o:\nobreakspace {}0$)\relax }}{5}{figure.caption.6}
+\contentsline {figure}{\numberline {4}{\ignorespaces Numerical Solution Motion Behavior Plot, ($\theta _o:\nobreakspace {}\sfrac {\pi }{18},\nobreakspace {}\phi _o:\nobreakspace {}\sfrac {\pi }{9}$)\relax }}{6}{figure.caption.7}
+\contentsline {figure}{\numberline {5}{\ignorespaces Numerical Solution Motion Behavior Plot, ($\theta _o:\nobreakspace {}\sfrac {\pi }{6},\nobreakspace {}\phi _o:\nobreakspace {}\sfrac {\pi }{3}$)\relax }}{7}{figure.caption.9}
+\contentsline {figure}{\numberline {6}{\ignorespaces Total Energy Comparison Plots\relax }}{8}{figure.caption.11}
+\contentsline {figure}{\numberline {7}{\ignorespaces Comparison Plots of ode45 Tolerance Options\relax }}{11}{figure.caption.14}

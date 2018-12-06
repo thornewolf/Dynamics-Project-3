@@ -286,9 +286,18 @@ Similarly, the procedure used to solve for the other Equations of Motion ($\ddot
 % ---------------------------------------------------------------------------- %
 \section{Solve the Equations of Motion} \label{section:solve}
 % ---------------------------------------------------------------------------- %
+<<<<<<< HEAD
+After solving for each respective EOM, we can plot the solution and depict
+the behavior of the system for 10 seconds. The behavior being that of the radial distance
+that the spring stretches as well as the spring's angular deflection from vertical, in addition
+to the angular deflection of the bar from vertical. The linear deflection from the stretch of the spring is
+plotted on it's own figure, and the angular deflection of the spring and bar from vertical are each plotted on one figure
+for each set of initial conditions.
+=======
 After solving for each respective EOM, we can plot the solution to the system and depict
 the behavior of the system for 10 seconds. The behavior being that of the radial distance
 that the spring stretches as well as it
+>>>>>>> f7e4fdaf5bc0a0776acca3a858554aa892cead59
 \begin{figure}[!htp]
   \caption{Numerical Solution Motion Behavior Plot, ($\theta_o:~0,~\phi_o:~0$)}
   \begin{subfigure}[t]{\textwidth}
@@ -298,7 +307,14 @@ that the spring stretches as well as it
 \end{subfigure}
 \end{figure}
 
+<<<<<<< HEAD
+The first configuration consists of the system being released from rest with no initial
+angular deflection, and the spring at it's unstretched initial length; this configuration
+therefore has no change in angular position, and simply begins to oscillate from the repeated
+stretching of the spring.
+=======
 The first configuration
+>>>>>>> f7e4fdaf5bc0a0776acca3a858554aa892cead59
 
 \begin{figure}[!ht]
 \caption{Numerical Solution Motion Behavior Plot, ($\theta_o:~\sfrac{\pi}{18},~\phi_o:~\sfrac{\pi}{9}$)}
@@ -364,8 +380,11 @@ The first configuration
 \end{subfigure}
 \end{figure}
 \newpage
+<<<<<<< HEAD
+=======
 \null
 \newpage
+>>>>>>> f7e4fdaf5bc0a0776acca3a858554aa892cead59
 \flushleft
 Running the |ode45| function with a relative tolerance of $1e-5$ and an absolute
 tolerance of $1e-9$ we produce a total energy graph that strays significantly
