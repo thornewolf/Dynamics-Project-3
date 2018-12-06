@@ -50,7 +50,6 @@ dLdtheta = diff(Lagrangian,thetat);
 
 % Theta EOM 
 eqn(1) = ddLdthetadotdt - dLdtheta == 0;
-pretty(simplify((eqn(1))))
 
 % Partial of Lagrange Eq. w.r.t. phidot
 dLdphidot = diff(Lagrangian,phidot);
@@ -63,7 +62,6 @@ dLdphi = diff(Lagrangian,phit);
 
 % Phi EOM
 eqn(2) = ddLdphidotdt - dLdphi == 0;
-pretty(simplify((eqn(2))))
 
 % Partial of Lagrange Eq. w.r.t. l (spring deflection)
 dLdl1dot = diff(Lagrangian,l1dot);
@@ -76,7 +74,6 @@ dLdl1 = diff(Lagrangian,l1t);
 
 % l (spring) EOM 
 eqn(3) = ddLdl1dotdt - dLdl1 == 0;
-pretty(simplify((eqn(3))))
 
 eqn(:) = subs(eqn(:), [theta diff(theta,t) diff(theta,t,t) phi diff(phi,t)...
     diff(phi,t,t) l1 diff(l1,t) diff(l1,t,t)],...

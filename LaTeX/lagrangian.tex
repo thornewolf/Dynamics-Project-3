@@ -17,7 +17,7 @@
 \usepackage[justification=centering]{caption} % figure captions (force centering)
 \usepackage{amsmath} % more math symbols and shit
 \usepackage{enumitem} % add arguments for enumerate to change style
-\usepackage[list=true]{subcaption} % subfigures with list of figure support
+\usepackage{subcaption} % subfigures with list of figure support option [list=true]
 \usepackage{BOONDOX-cal} % fancy mathtype script
 \usepackage[hidelinks]{hyperref} % clickable table of contents
 \hypersetup{
@@ -91,7 +91,7 @@ We are asked to determine the following: \\
   \end{array}
   $
   \item Plot the total energy versus time for all 3 cases.
-  \item Repeat 2. and 3. using a '|RelTol|' of 1e-6 and '|AbsTol|' of 1e-9 for the
+  \item Repeat 2. and 3. using a '|RelTol|' of $1e-6$ and '|AbsTol|' of $1e-9$ for the
   |ode45| integration tolerances.
 \end{enumerate}
 \newpage
@@ -103,8 +103,8 @@ We are asked to determine the following: \\
    \begin{minipage}[c]{.5\textwidth}
      \begin{subfigure}{\textwidth}
        \center
-      \input{fbd} \\
-      \vspace{2ex}
+      \input{fbd}
+      \vspace{1ex}
       \caption{Free Body Diagram}
       \label{fbd}
       \end{subfigure}
@@ -112,20 +112,21 @@ We are asked to determine the following: \\
    \begin{minipage}[c]{.5\textwidth}
      \begin{subfigure}{\textwidth}
        \center
-       \input{ad} \\
-       \vspace{3ex}
+       \vspace{2ex}
+       \input{ad}
+       \vspace{2ex}
        \caption{Acceleration Diagram}
        \label{ad}
     \end{subfigure}
    \end{minipage}
 \end{figure}
-  \center
-  \begin{tabular}{rl@{\hskip .5in}rl}
+\vspace{-2ex}
+\begin{tabular}{rl@{\hskip .5in}rl}
   $G$:&Center of gravity of the bar &$\vec{v}_G$:& Velocity of bar center of gravity\\
   $\ell_0$:& Spring unstretched length  &$\ddot{\theta}$:& Angular velocity of spring \\
   $\delta$:& Spring deflection &$\ddot{\phi}$:& Angular velocity of bar\\
   $k$:& Spring constant &$\ddot{\ell}_s$:& Radial acceleration of spring \\
-  $h_{b}$:& Height of bar from datum \\
+  $h_{b}$:& Distance to bar ($G$) from datum \\
   $F_s$:& Force onto bar due to spring\\
   $A_{\theta}$:& Pin reaction in $\theta$ direction\\
   $A_{t}$:& Pin reaction in tangential direction \\
@@ -155,6 +156,7 @@ We are asked to determine the following: \\
     \end{tabular}
     \end{minipage}
 \end{figure}
+\newpage
 % ---------------------------------------------------------------------------- %
 \section{Sum of Forces}
 % ---------------------------------------------------------------------------- %
@@ -186,7 +188,7 @@ T = T_1 + T_2 = \frac{1}{2}m_{b}(\vec{v}_G \cdot \vec{v}_G) + \frac{1}{24}m_{b}\
 
 Potential Energy of Spring due to it's stretch (Figure \ref{fbd}):
 $$V_1 = \frac{1}{2}k\big(\ell_s-\ell_0\big)^2$$
-Potential Energy of Bar, due to it's distance below the datum, $h_{bar}$ (Figure \ref{fbd}):
+Potential Energy of Bar, due to it's distance below the datum, $h_{b}$ (Figure \ref{fbd}):
 $$V_2 = - m_bg\big(\ell_s\cos(\theta) + \frac{\ell_b}{2}\cos(\phi)\big)$$
 Total Potential Energy:
 \begin{equation}
@@ -205,8 +207,8 @@ V = V_1 + V_2 = \frac{1}{2}k\big(\ell_s-\ell_0\big)^2 - m_bg\big(\ell_s\cos(\the
   \quad Spring Coefficient:& $k = 25~\sfrac{\text{N}}{\text{m}}$\\
   \quad Unstretched Length:& $\ell_0$ = 0.5 m \\
   State Variables: \\
-  \quad Angular \& Radial Position: &$\theta,~\phi,\ell_s$ \\
-  \quad Angular \& Radial Velocity: &$\dot{\theta},~\dot{\phi},~\dot{\ell}_s$ & \\
+  \quad Angular \& Radial Positions: &$\theta,~\phi,\ell_s$ \\
+  \quad Angular \& Radial Velocities: &$\dot{\theta},~\dot{\phi},~\dot{\ell}_s$ & \\
 \end{tabular}
 \vspace{2ex}
 
@@ -262,7 +264,8 @@ gm_b\left(\frac{\ell_b\cos(\phi)}{2} + \ell_s\cos(\theta)\right)
 
 
 Using Equations (\ref{eq:lagtheta}), (\ref{eq:lagphi}), (\ref{eq:lagspring}) and (\ref{eq:lag}), we can
-solve for the three Equations of Motion with Matlab.
+solve for the three Equations of Motion with Matlab. The code used to find the EOM
+for $\ddot{\theta}$ is shown below.
 
 \begin{lstlisting}[frame=lines,style=Matlab-editor,basicstyle = \mlttfamily]
 Lagrangian = T - V;
@@ -279,33 +282,40 @@ dLdtheta = diff(Lagrangian,thetat);
 % Theta EOM
 eqn(1) = ddLdthetadotdt - dLdtheta == 0;
 \end{lstlisting}
-Similarly, the other Equations of Motion can be found in the Appendix -- Numerical Solution.
-
-
-
-\newpage
+Similarly, the procedure used to solve for the other Equations of Motion ($\ddot{\phi}$ and $\ddot{\ell}_s$) can be found in the Appendix -- Numerical Solution (\ref{appendix:numerical}). Once each EOM was found, the numerical solution was created by using the |ode45| function in Matlab, as seen in Solve the Equations of Motion (\ref{section:solve}).
 % ---------------------------------------------------------------------------- %
-\section{Solve the Equations of Motion}
+\section{Solve the Equations of Motion} \label{section:solve}
 % ---------------------------------------------------------------------------- %
+After solving for each respective EOM, we can plot the solution and depict
+the behavior of the system for 10 seconds. The behavior being that of the radial distance
+that the spring stretches as well as the spring's angular deflection from vertical, in addition
+to the angular deflection of the bar from vertical. The linear deflection from the stretch of the spring is
+plotted on it's own figure, and the angular deflection of the spring and bar from vertical are each plotted on one figure
+for each set of initial conditions.
 \begin{figure}[!htp]
   \caption{Numerical Solution Motion Behavior Plot, ($\theta_o:~0,~\phi_o:~0$)}
   \begin{subfigure}[t]{\textwidth}
   \includegraphics[center]{spring_0-0}
-  \caption{Spring Length vs. Time}
+  \caption*{Spring Length vs. Time}
   \label{fig:spring:0:0}
 \end{subfigure}
 \end{figure}
 
-\begin{figure}[!htp] \ContinuedFloat
-  \caption{Numerical Solution Motion Behavior Plots, ($\theta_o:\sfrac{\pi}{18},~\phi_o:\sfrac{\pi}{9}$)}
+The first configuration consists of the system being released from rest with no initial
+angular deflection, and the spring at it's unstretched initial length; this configuration
+therefore has no change in angular position, and simply begins to oscillate from the repeated
+stretching of the spring.
+
+\begin{figure}[!ht]
+\caption{Numerical Solution Motion Behavior Plot, ($\theta_o:~\sfrac{\pi}{18},~\phi_o:~\sfrac{\pi}{9}$)}
 \begin{subfigure}[t]{\textwidth}
   \includegraphics[center]{spring_18-9}
   \caption{Spring Length vs. Time}
   \label{fig:spring:18-9}
 \end{subfigure}
 \end{figure}
-
-\begin{figure}[!htp] \ContinuedFloat
+\newpage
+\begin{figure}[!ht] \ContinuedFloat
   \phantomcaption
 \begin{subfigure}[t]{\textwidth}
   \includegraphics[center]{angles_18-9}
@@ -313,9 +323,9 @@ Similarly, the other Equations of Motion can be found in the Appendix -- Numeric
   \label{fig:angles:18-9}
 \end{subfigure}
 \end{figure}
-
-\begin{figure}[!htp] \ContinuedFloat
-  \caption{Numerical Solution Motion Behavior Plots, ($\theta_o:\sfrac{\pi}{6},~\phi_o:\sfrac{\pi}{3}$)}
+\null
+\begin{figure}[!ht]
+\caption{Numerical Solution Motion Behavior Plot, ($\theta_o:~\sfrac{\pi}{6},~\phi_o:~\sfrac{\pi}{3}$)}
 \begin{subfigure}[t]{\textwidth}
   \includegraphics[center]{spring_6-3}
   \caption{Spring Length vs. Time}
@@ -323,7 +333,7 @@ Similarly, the other Equations of Motion can be found in the Appendix -- Numeric
 \end{subfigure}
 \end{figure}
 
-\begin{figure}[!htp] \ContinuedFloat
+\begin{figure}[!ht] \ContinuedFloat
   \phantomcaption
 \begin{subfigure}[t]{\textwidth}
   \includegraphics[center]{angles_6-3}
@@ -331,31 +341,43 @@ Similarly, the other Equations of Motion can be found in the Appendix -- Numeric
   \label{fig:angles:6-3}
 \end{subfigure}
 \end{figure}
+\newpage
 
-\begin{figure}[!htp] \ContinuedFloat
-  \phantomcaption
+\begin{figure}[!htp]
+  \caption{Total Energy Comparison Plots}
 \begin{subfigure}[t]{\textwidth}
   \includegraphics[center]{Energy1}
   \caption{Total Energy in the System ($\theta_o:0,~\phi_o:0$)}
   \label{fig:Energy1}
 \end{subfigure}
 \end{figure}
-
-\begin{figure}[!htp] \ContinuedFloat
+\null
+\begin{figure}[!ht] \ContinuedFloat
   \phantomcaption
 \begin{subfigure}[t]{\textwidth}
-  \includegraphics[center]{Energy1}
-  \caption{Total Energy in the System ($\theta_o:0,~\phi_o:0$)}
+  \includegraphics[center]{Energy2}
+  \caption{Total Energy in the System ($\theta_o:~\sfrac{\pi}{18},~\phi_o:~\sfrac{\pi}{9}$)}
   \label{fig:Energy2}
 \end{subfigure}
 \end{figure}
 
-Running the ode45 function with a relative tolerance of $1e-5$ and an absolute
+\begin{figure}[!ht] \ContinuedFloat
+  \phantomcaption
+\begin{subfigure}[t]{\textwidth}
+  \includegraphics[center]{Energy3}
+  \caption{Total Energy in the System ($\theta_o:~\sfrac{\pi}{6},~\phi_o:~\sfrac{\pi}{3}$)}
+  \label{fig:Energy3}
+\end{subfigure}
+\end{figure}
+\newpage
+\flushleft
+Running the |ode45| function with a relative tolerance of $1e-5$ and an absolute
 tolerance of $1e-9$ we produce a total energy graph that strays significantly
-less than the default ode45 implementation. The max percentage difference between
-the high and low tolerance integrations in figure \ref{fig:Energy1} is xxx\%.
-The max percentage difference in figure \ref{fig:Energy2} is xxx\%. The max percentage difference in figure \ref{fig:Energy3} is xxx\%.
-
+less than the default |ode45| implementation. The max percentage difference between
+the high and low tolerance integrations in Figure (\ref{fig:Energy1}) is -0.0245\%.
+The max percentage difference in Figure (\ref{fig:Energy2}) is
+-0.0538\%. The max percentage difference in Figure (\ref{fig:Energy3}) is
+-0.2116\%.
 
 % ---------------------------------------------------------------------------- %
 \section{Does it Make Sense?}
