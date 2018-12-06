@@ -237,3 +237,26 @@ set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperUnits', 'inches');
 set(gcf, 'PaperPosition', [1 1 6 2.5]);
 print('6-3-angles-tol','-dpdf');
+
+thetaEOM = subs(thetaEOM, [theta, diff(theta,t), phi, diff(phi,t), l1, diff(l1,t)],...
+                [thetat, thetadot, phit, phidot, l1t, l1dot])
+
+% Checking EOM Units
+u = symunit;
+m2 = m2*u.kg;
+k = k*u.N/u.m;
+L0 = L0*u.m;
+l2 = l2*u.m;
+g = g*u.m/u.s^2;
+thetat = 'thetat';
+thetadot = 'thetadot'/u.s;
+thetaddot = 'thetaddot'/u.s^2;
+phit = 'phit';
+phidot = 'phidot'/u.s;
+phiddot = 'phiddot'/u.s^2;
+l1t = 'l1t'*u.m;
+l1dot = 'l1dot'*u.m/u.s;
+l1ddot = 'l1ddot'*u.m/u.s^2;
+
+eqn = subs(eqn)
+unitCheck = checkUnits(eqn)
