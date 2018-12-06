@@ -10,7 +10,6 @@
 \contentsline {section}{\numberline {9}Does it Make Sense?}{10}{section.0.9}
 \contentsline {subsection}{\numberline {9.1}Units}{10}{subsection.0.9.1}
 \contentsline {subsection}{\numberline {9.2}Magnitude}{10}{subsection.0.9.2}
-\contentsline {section}{\numberline {10}Appendix}{11}{section.0.10}
-\contentsline {subsection}{\numberline {10.1}Attributions}{11}{subsection.0.10.1}
-\contentsline {subsection}{\numberline {10.2}Analytical Solution}{12}{subsection.0.10.2}
-\contentsline {subsection}{\numberline {10.3}Numerical Solution}{13}{subsection.0.10.3}
+\contentsline {section}{\numberline {10}Appendix}{12}{section.0.10}
+\contentsline {subsection}{\numberline {10.1}Analytical Solution}{12}{subsection.0.10.1}
+\contentsline {subsection}{\numberline {10.2}Numerical Solution}{13}{subsection.0.10.2}

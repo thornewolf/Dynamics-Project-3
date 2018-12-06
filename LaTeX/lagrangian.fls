@@ -548,6 +548,9 @@ INPUT unitcheck.tex
 INPUT /usr/local/texlive/2018basic/texmf-dist/tex/latex/lm/ts1lmtt.fd
 INPUT /usr/local/texlive/2018basic/texmf-dist/tex/latex/lm/ts1lmtt.fd
 INPUT /usr/local/texlive/2018basic/texmf-dist/fonts/tfm/public/lm/ts1-lmtt12.tfm
+INPUT images/analytical.pdf
+INPUT ./images/analytical.pdf
+INPUT ./images/analytical.pdf
 INPUT images/1.pdf
 INPUT ./images/1.pdf
 INPUT ./images/1.pdf

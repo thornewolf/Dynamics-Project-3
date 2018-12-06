@@ -288,9 +288,7 @@ Similarly, the procedure used to solve for the other Equations of Motion ($\ddot
 % ---------------------------------------------------------------------------- %
 After solving for each respective EOM, we can plot the solution and depict
 the behavior of the system for 10 seconds. The behavior being that of the radial distance
-that the spring stretches as well as the spring's angular deflection from vertical, in addition
-to the angular deflection of the bar from vertical. The linear deflection from the stretch of the spring is
-plotted on it's own figure, and the angular deflection of the spring and bar from vertical are each plotted on one figure
+that the spring stretches as well as the spring's angular deflection from vertical. The linear deflection from the stretch of the spring is plotted on it's own figure, and the angular deflection of the spring and bar from vertical are each plotted on one figure
 for each set of initial conditions.
 \begin{figure}[!htp]
   \caption{Numerical Solution Motion Behavior Plot, ($\theta_o:~0,~\phi_o:~0$)}
@@ -302,8 +300,7 @@ for each set of initial conditions.
 \end{figure}
 
 The first configuration consists of the system being released from rest with no initial
-angular deflection, and the spring at it's unstretched initial length; this configuration
-therefore has no change in angular position, and simply begins to oscillate from the repeated
+angular deflection, and the spring at it's unstretched initial length; therefore this configuration has no change in angular position, and simply begins to oscillate from the repeated
 stretching of the spring.
 
 \begin{figure}[!ht]
@@ -411,26 +408,17 @@ Checking with the MATLAB symbolic units tool (from Section \ref{appendix:numeric
 ~\\
 \input{unitcheck}
 \subsection{Magnitude}
-Examining the figures we can see that the magnitude of spring length never exceeds the max length achieved in the first period. This indicated that no energy is added in the spring oscillation, which is expected due to the fact that we have no external forces affecting the spring-bar system. Similarly, figures
-(\ref{fig:Energy1}), (\ref{fig:Energy2}), and (\ref{fig:Energy3}) all indicate that the total energy within the system remains essentially constant. There is a minor drift in the total energy on the magnitude of $10^{-3}J$ for our loosly toleranced integrations. With the more highly toleranced integrations the energy drift is on the magnitude of $10^{-6}$. This low change in energy relative tot he total energy of the system indicates that the conservation of energy principle holds true in our system that lacks non-conservative forces.
+Examining the figures we can see that the magnitude of spring length never exceeds the max length achieved in the first period. This indicates that no energy is added in the spring oscillation, which is expected due to the fact that we have no external forces acting on the spring-bar system. Similarly, figures
+(\ref{fig:Energy1}), (\ref{fig:Energy2}), and (\ref{fig:Energy3}) all indicate that the total energy within the system remains essentially constant. There is a minor drift in the total energy on the magnitude of $10^{-3}J$ due to the loose tolerances in the |ode45| integration function. With the more highly toleranced integrations the energy drift is on the magnitude of $10^{-6}$. This low change in energy relative to the total energy of the system indicates that the conservation of energy principle holds true in our system that lacks non-conservative forces.
+
 \section{Appendix} \label{appendix}
-\subsection{Attributions}
-\onehalfspacing
-\begin{tabular}{ll}
-Jeffrey Chen & \\
-Thorne Wolfenbarger & \\
-Trey Dufrene & \\
-Joint Effort &
-\end{tabular}
-\singlespacing
-
-\newpage
 \subsection{Analytical Solution}
-
+\center
+\includegraphics[center,page=1]{analytical}
 \newpage
 \subsection{Numerical Solution} \label{appendix:numerical}
 % \input{matlab}
-% TODO: Add scan of Thorne's work? TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+% TODO: Add scan of Thorne's work? TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 \begin{figure}[!htp]
   \caption{Comparison Plots of ode45 Tolerance Options}
   \begin{subfigure}{\textwidth}
